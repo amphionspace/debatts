@@ -43,6 +43,9 @@
               pointer-events: none;
               opacity: 0;
             }
+            .text-p {
+              @apply mb-3 font-normal text-gray-900 dark:text-gray-400;
+            }
         }
     </style>
 
@@ -251,7 +254,7 @@
           Pipeline Introduction
         </h5>
 
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
+        <p class="text-p">
           In this section, we introduce the general view of Emilia's six-step data processing pipeline,
           <code>Emilia-Pipe</code>.
           These steps include Standardization, Source Separation, Speaker Diarization, Fine-grained
@@ -291,7 +294,7 @@
         </ul>
 
 
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
+        <p class="text-p">
           The source code of Emilia-Pipe is available here: <a class="text-blue-500"
             href="https://github.com/open-mmlab/Amphion">open-mmlab/Amphion</a>.
         </p>
@@ -299,12 +302,14 @@
         <div class="relative overflow-x-auto">
           <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
 
+            <!-- header -->
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
               <div v-for="item in models" scope="col" class="w-[330px] shrink-0 px-6 py-4 font-medium">
                 {{ item.name }}
               </div>
             </div>
 
+            <!-- body -->
             <div v-for="(item, index) in texts">
               <div
                 class="flex w-full bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -321,6 +326,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -330,44 +336,39 @@
         <h5 id="demos">
           Demos and Downloads
         </h5>
-        <h5 id="about">
-          About Us
-        </h5>
-        <br>
-        <h5>
-          Samples
-        </h5>
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
-          Here are some TTS samples.
+
+        <p class="text-p">
+          To better understand the performance of the pipeline and the diversity and quality of the dataset, we sampled
+          few audio below. For English and Chinese, we sampled 5 segments each, and for German, French, Japanese, and
+          Korean, we sampled 2 segment each.
         </p>
 
+        <!-- data_pipeline_egs:table -->
         <div class="relative overflow-x-auto">
           <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
 
-            <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
-              <div v-for="item in models" scope="col" class="w-[330px] shrink-0 px-6 py-4 font-medium">
-                {{ item.name }}
-              </div>
-            </div>
-
-            <div v-for="(item, index) in texts">
-              <div
-                class="flex w-full bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div class="px-6 py-4 font-medium dark:text-white">
-                  <b>Text:</b> {{ item.name }}
-                </div>
-              </div>
+            <!-- body -->
+            <div v-for="(item, index) in data_pipeline_egs">
               <div
                 class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div v-for="model in models" class="w-[330px] px-4 py-2">
+                <div class="w-[100px] px-6 h-full my-auto font-bold dark:text-white ">
+                  {{ item.name }}
+                </div>
+                <div v-for="path in item.path" class="w-[310px] px-4 py-2">
                   <audio controls>
-                    <source :src="model.path + item.path">
+                    <source :src="'data/pipeline_egs/' + path">
                   </audio>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
+
+        <h5 id="about">
+          About Us
+        </h5>
 
 
       </div>
@@ -377,51 +378,62 @@
   <script>
     const app = Vue.createApp({
       setup() {
-        const table = [
-          ['Amphion (VITS)', '0.06', '0.10', '0.84', '0.97', '3.61 ± 0.1'],
-          // ['Amphion VITS (300k)', '0.08', '0.14', '1.84', '0.97'],
-          ['Coqui/TTS (VITS)', '0.06', '0.12', '0.54', '0.98', '3.69 ± 0.1'],
-          ['SpeechBrain （Fastspeech2）', '0.06', '0.11', '1.71', '0.94', '3.54 ± 0.11'],
-          ['Tortoise-tts (Diffusion-based model)', '0.05', '0.09', '1.90', '0.55', '3.61 ± 0.11'],
-          ['ESPNet  (VITS)', '0.07', '0.11', '1.28', '0.99', '3.57 ± 0.11'],
+        // data/pipeline_egs/{lang}_{index}.mp3
+        const data_pipeline_egs = [
+          {
+            name: "Chinese",
+            path: [
+              "zh_1.mp3",
+              "zh_2.mp3",
+              "zh_3.mp3",
+              "zh_4.mp3",
+              "zh_5.mp3",
+            ]
+          },
+          {
+            name: "English",
+            path: [
+              "en_1.mp3",
+              "en_2.mp3",
+              "en_3.mp3",
+              "en_4.mp3",
+              "en_5.mp3",
+            ]
+          },
+          {
+            name: "French",
+            path: [
+              "fr_1.mp3",
+              "fr_2.mp3",
+            ]
+          },
+          {
+            name: "German",
+            path: [
+              "de_1.mp3",
+              "de_2.mp3",
+            ]
+          },
+          {
+            name: "Japanese",
+            path: [
+              "ja_1.mp3",
+              "ja_2.mp3",
+            ]
+          },
+          {
+            name: "Korean",
+            path: [
+              "ko_1.mp3",
+              "ko_2.mp3",
+            ]
+          },
         ]
 
-        const models = [
-          {
-            name: 'Amphion (VITS)',
-            path: './data/Amphion_VITS_600k'
-          },
-          // {
-          //     name: 'Amphion VITS (300k)',
-          //     path: '/data/Amphion_VITS_300k'
-          // },
-          {
-            name: 'Coqui/TTS (VITS)',
-            path: './data/coqui_audio'
-          },
-          {
-            name: 'Tortoise-tts (Diffusion-based model)',
-            path: './data/tortoise_audio'
-          },
-          {
-            name: 'ESPNet  (VITS)',
-            path: './data/ESPNet_VITS'
-          },
-          {
-            name: 'SpeechBrain (Fastspeech2)',
-            path: './data/Speechbrain_Fastspeech2'
-          },
-        ]
-        const texts = [
-          {
-            name: "Does a tiny particle of the consecrated bread contain all the body and blood of Jesus Christ or a part only of the body and blood?",
-            path: "/0.wav"
-          }
-        ]
         return {
-          table,
-          models,
-          texts,
+          data_pipeline_egs,
+          // models,
+          // texts,
           data
         }
       }
