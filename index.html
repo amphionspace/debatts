@@ -43,6 +43,9 @@
               pointer-events: none;
               opacity: 0;
             }
+            .text-p {
+              @apply mb-3 font-normal text-gray-900 dark:text-gray-400;
+            }
         }
     </style>
 
@@ -155,9 +158,9 @@
 
         The duration statistics for each language in the dataset are shown in the table and figure below.
 
-        <div class="flex mx-auto max-w-screen-sm">
+        <div class="my-4 grid grid-cols-1 mx-auto max-w-screen-sm md:grid-cols-2">
 
-          <div class="my-4 relative overflow-x-auto mx-auto shrink-0">
+          <div class="relative overflow-x-auto mx-auto">
             <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-200">
               <div class="flex w-full text-center text-gray-900 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                 <div v-for="(item, index) in ['Lang.', 'Duration (hours)']" scope="col"
@@ -177,86 +180,26 @@
             </div>
           </div>
 
-          <svg class="chart w-[280px] h-[280px] shrink-0"></svg>
+          <div class="w-[280px] h-[280px] flex mx-auto">
+            <img src="./static/emilia_data.svg"></img>
+          </div>
 
         </div>
-        <script>
-          const data = [
-            { lang: 'En', duration: 46828 },
-            { lang: 'Zh', duration: 49922 },
-            { lang: 'De', duration: 1590 },
-            { lang: 'Fr', duration: 1381 },
-            { lang: 'Ja', duration: 1715 },
-            { lang: 'Ko', duration: 217 }
-          ];
-
-          const width = 300;
-          const height = Math.min(width, 280);
-
-          const color = d3.scaleOrdinal()
-            .domain(data.map(d => d.lang))
-            .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse());
-
-          const pie = d3.pie()
-            .sort(null)
-            .value(d => d.duration);
-
-          const arc = d3.arc()
-            .innerRadius(Math.min(width, height) / 3.3)
-            .outerRadius(Math.min(width, height) / 2 - 1);
-
-          const labelRadius = arc.outerRadius()() * 0.8;
-
-          const arcLabel = d3.arc()
-            .innerRadius(labelRadius)
-            .outerRadius(labelRadius);
-
-          const arcs = pie(data);
-
-          const svg = d3.select('.chart')
-            .attr('width', width)
-            .attr('height', height)
-            .attr('viewBox', [-width / 2, -height / 2, width, height])
-            .attr('style', 'max-width: 100%; height: auto; font: 10px sans-serif;');
-
-          svg.append('g')
-            .attr('stroke', 'white')
-            .selectAll('path')
-            .data(arcs)
-            .enter().append('path')
-            .attr('fill', d => color(d.data.lang))
-            .attr('d', arc)
-            .append('title')
-            .text(d => `${d.data.lang}: ${d.data.duration.toLocaleString("en-US")}`);
-
-          svg.append('g')
-            .attr('text-anchor', 'middle')
-            .selectAll('text')
-            .data(arcs)
-            .enter().append('text')
-            .attr('transform', d => `translate(${arcLabel.centroid(d)})`)
-            .call(text => text.append('tspan')
-              .attr('y', '-0.4em')
-              .attr('font-weight', 'bold')
-              .text(d => d.data.lang))
-            .call(text => text.filter(d => (d.endAngle - d.startAngle) > 0.25).append('tspan')
-              .attr('x', 0)
-              .attr('y', '0.7em')
-              .attr('fill-opacity', 0.7)
-              .text(d => d.data.duration.toLocaleString('en-US')));
-
-        </script>
 
         <h5 id="pipeline">
           Pipeline Introduction
         </h5>
 
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
+        <p class="text-p">
           In this section, we introduce the general view of Emilia's six-step data processing pipeline,
           <code>Emilia-Pipe</code>.
           These steps include Standardization, Source Separation, Speaker Diarization, Fine-grained
-          Segmentation by VAD, ASR, and Filtering.
+          Segmentation by VAD, ASR, and Filtering, as the figure below shows.
         </p>
+
+        <div class="flex mx-auto justify-center max-w-screen-lg p-8">
+          <img src="./static/emilia_pipe.svg"></img>
+        </div>
 
         <ul class="mb-3 space-y-1 text-gray-900 list-disc list-inside">
           <li>
@@ -290,8 +233,18 @@
           </li>
         </ul>
 
+        <p class="text-p">
+          After processing, the pipeline outputs the speech data in JSON and WAV format. The JSON file contains
+          metadata such as the speaker ID, language, and transcription, while the WAV file contains the audio data.
+          The JSON file is structured as follows:
+        </p>
 
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
+        <div class="flex mx-auto justify-center max-w-screen-lg p-8">
+          <img src="./static/json_example.svg"></img>
+        </div>
+
+
+        <p class="text-p">
           The source code of Emilia-Pipe is available here: <a class="text-blue-500"
             href="https://github.com/open-mmlab/Amphion">open-mmlab/Amphion</a>.
         </p>
@@ -299,12 +252,14 @@
         <div class="relative overflow-x-auto">
           <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
 
+            <!-- header -->
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
               <div v-for="item in models" scope="col" class="w-[330px] shrink-0 px-6 py-4 font-medium">
                 {{ item.name }}
               </div>
             </div>
 
+            <!-- body -->
             <div v-for="(item, index) in texts">
               <div
                 class="flex w-full bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -321,53 +276,97 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
         <h5 id="experiments">
           Experiments and Results
         </h5>
-        <h5 id="demos">
-          Demos and Downloads
-        </h5>
-        <h5 id="about">
-          About Us
-        </h5>
-        <br>
-        <h5>
-          Samples
-        </h5>
-        <p class="mb-3 font-normal text-gray-900 dark:text-gray-400">
-          Here are some TTS samples.
+
+        <p class="text-p">
+          In this section, we evaluate the effectiveness of the Emilia dataset in text-to-speech synthesis. We conduct
+          two experiments: the English-only experiment and the multilingual experiment.
         </p>
 
-        <div class="relative overflow-x-auto">
-          <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
+        <p class="text-p">
+          In the English-only experiment,
+          we compare the performance of TTS models trained with the English subset of the Emilia dataset, termed Emilia,
+          with those trained with the English subset of the MLS dataset, termed MLS, which is originally sourced from
+          audiobooks. The following table shows the results of the experiment.
+        </p>
+
+        <!-- data_model_egs:table -->
+        <div class="w-full overflow-x-auto my-4">
+          <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
 
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
-              <div v-for="item in models" scope="col" class="w-[330px] shrink-0 px-6 py-4 font-medium">
+              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-medium">
                 {{ item.name }}
               </div>
             </div>
 
-            <div v-for="(item, index) in texts">
+            <!-- body -->
+            <div v-for="(item, index) in data_model_egs">
               <div
-                class="flex w-full bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <div class="px-6 py-4 font-medium dark:text-white">
-                  <b>Text:</b> {{ item.name }}
+                  <b>Target Text:</b> {{ item.targetText }}
                 </div>
               </div>
               <div
                 class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div v-for="model in models" class="w-[330px] px-4 py-2">
-                  <audio controls>
-                    <source :src="model.path + item.path">
+                <div v-for="sound in data_model_egs_sounds" class="w-[260px] px-4 py-2">
+                  <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
+                    <source :src="'data/model_egs/' + item.path + '/' + sound.path">
                   </audio>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
+
+        <p class="text-p">
+          In the multilingual experiment, we train the TTS models with the full Emilia dataset, comprising
+          101,654 hours of multilingual speech data. The following table shows the results of the experiment.
+        </p>
+
+        <h5 id="demos">
+          Demos and Downloads
+        </h5>
+
+        <p class="text-p">
+          To better understand the performance of the pipeline and the diversity and quality of the dataset, we sampled
+          few audio below. For each language, we sampled 2 segments.
+        </p>
+
+        <!-- data_pipeline_egs:table -->
+        <div class="w-full overflow-x-auto">
+          <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
+
+            <!-- body -->
+            <div v-for="(item, index) in data_pipeline_egs">
+              <div
+                class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div class="w-[100px] px-6 h-full my-auto font-bold dark:text-white ">
+                  {{ item.name }}
+                </div>
+                <div v-for="path in item.path" class="w-[310px] px-4 py-2">
+                  <audio controls>
+                    <source :src="'data/pipeline_egs/' + path">
+                  </audio>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <h5 id="about">
+          About Us
+        </h5>
 
 
       </div>
@@ -377,51 +376,112 @@
   <script>
     const app = Vue.createApp({
       setup() {
-        const table = [
-          ['Amphion (VITS)', '0.06', '0.10', '0.84', '0.97', '3.61 ± 0.1'],
-          // ['Amphion VITS (300k)', '0.08', '0.14', '1.84', '0.97'],
-          ['Coqui/TTS (VITS)', '0.06', '0.12', '0.54', '0.98', '3.69 ± 0.1'],
-          ['SpeechBrain （Fastspeech2）', '0.06', '0.11', '1.71', '0.94', '3.54 ± 0.11'],
-          ['Tortoise-tts (Diffusion-based model)', '0.05', '0.09', '1.90', '0.55', '3.61 ± 0.11'],
-          ['ESPNet  (VITS)', '0.07', '0.11', '1.28', '0.99', '3.57 ± 0.11'],
+        const data = [
+          { lang: 'En', duration: 46828 },
+          { lang: 'Zh', duration: 49922 },
+          { lang: 'De', duration: 1590 },
+          { lang: 'Fr', duration: 1381 },
+          { lang: 'Ja', duration: 1715 },
+          { lang: 'Ko', duration: 217 }
+        ];
+
+        // data/pipeline_egs/{lang}_{index}.mp3
+        const data_pipeline_egs = [
+          {
+            name: "Chinese",
+            path: [
+              "zh_1.mp3",
+              "zh_3.mp3",
+            ]
+          },
+          {
+            name: "English",
+            path: [
+              "en_1.mp3",
+              "en_3.mp3",
+            ]
+          },
+          {
+            name: "French",
+            path: [
+              "fr_1.mp3",
+              "fr_2.mp3",
+            ]
+          },
+          {
+            name: "German",
+            path: [
+              "de_1.mp3",
+              "de_2.mp3",
+            ]
+          },
+          {
+            name: "Japanese",
+            path: [
+              "ja_1.mp3",
+              "ja_2.mp3",
+            ]
+          },
+          {
+            name: "Korean",
+            path: [
+              "ko_1.mp3",
+              "ko_2.mp3",
+            ]
+          },
         ]
 
-        const models = [
+        const data_model_egs_sounds = [
           {
-            name: 'Amphion (VITS)',
-            path: './data/Amphion_VITS_600k'
-          },
-          // {
-          //     name: 'Amphion VITS (300k)',
-          //     path: '/data/Amphion_VITS_300k'
-          // },
-          {
-            name: 'Coqui/TTS (VITS)',
-            path: './data/coqui_audio'
+            name: "Reference",
+            path: "ref.wav"
           },
           {
-            name: 'Tortoise-tts (Diffusion-based model)',
-            path: './data/tortoise_audio'
+            name: "SoundStorm-MLS",
+            path: "ar_mls.wav"
           },
           {
-            name: 'ESPNet  (VITS)',
-            path: './data/ESPNet_VITS'
+            name: "SoundStorm-Emilia",
+            path: "ar_emilia.wav"
           },
           {
-            name: 'SpeechBrain (Fastspeech2)',
-            path: './data/Speechbrain_Fastspeech2'
+            name: "VoiceBox-MLS",
+            path: "nar_mls.wav"
+          },
+          {
+            name: "VoiceBox-Emilia",
+            path: "nar_emilia.wav"
           },
         ]
-        const texts = [
+
+        const data_model_egs = [
           {
-            name: "Does a tiny particle of the consecrated bread contain all the body and blood of Jesus Christ or a part only of the body and blood?",
-            path: "/0.wav"
-          }
+            path: "ab_1",
+            targetText: "a love set pendulous between Sorrow and sorrow?",
+          },
+          {
+            path: "ab_2",
+            targetText: "\"Then, dear,\" said Mrs. Whitney, \"you must be kinder to her than ever; think what it would be for one of you to be away from home even among friends.\"",
+          },
+          {
+            path: "ss_1",
+            targetText: "Probably. I mean, but at nine dollars a piece, we don't want to see too many doubles today. What do we have here? Another dog.",
+          },
+          {
+            path: "ss_2",
+            targetText: "And then it's those two thick long things are connected to a thicker thing down there. And then it has these",
+          },
+          {
+            path: "ss_3",
+            targetText: "Unfortunately, Army of Thieves arrives as a bit of an inauspicious test case for that hypothesis, thanks to an overreliance on Army of the Dead's",
+          },
         ]
+
         return {
-          table,
-          models,
-          texts,
+          data_pipeline_egs,
+          data_model_egs_sounds,
+          data_model_egs,
+          // texts,
           data
         }
       }
