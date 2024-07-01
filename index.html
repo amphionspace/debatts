@@ -156,7 +156,7 @@
           Dataset Overview
         </h5>
 
-        The duration statistics for each language in the dataset are shown in the table and figure below.
+        The duration statistics for each language in the dataset are shown in the table and chart below.
 
         <div class="my-4 grid grid-cols-1 mx-auto max-w-screen-sm md:grid-cols-2">
 
@@ -187,21 +187,18 @@
         </div>
 
         <h5 id="pipeline">
-          Pipeline Introduction
+          Emilia-Pipe
         </h5>
 
         <p class="text-p">
-          In this section, we introduce the general view of Emilia's six-step data processing pipeline,
-          <code>Emilia-Pipe</code>.
-          These steps include Standardization, Source Separation, Speaker Diarization, Fine-grained
-          Segmentation by VAD, ASR, and Filtering, as the figure below shows.
+          <code>Emilia-Pipe</code> is the first open-source preprocessing pipeline designed to transform in-the-wild speech data into high-quality training data with annotations for speech generation. It consists of six major steps: Standardization, Source Separation, Speaker Diarization, Fine-grained Segmentation by VAD, ASR, and Filtering. The figure below provides an overview of the Emilia-Pipe.
         </p>
 
         <div class="flex mx-auto justify-center max-w-screen-lg p-8">
           <img src="./static/emilia_pipe.svg"></img>
         </div>
 
-        <ul class="mb-3 space-y-1 text-gray-900 list-disc list-inside">
+<!--         <ul class="mb-3 space-y-1 text-gray-900 list-disc list-inside">
           <li>
             <strong>Standardization:</strong> The collected speech data are converted to a standardized format by
             converting all samples to WAV files, setting them to a mono channel, resampling to 24 kHz, setting the
@@ -231,11 +228,11 @@
             data using criteria such as language identification confidence, speech quality score (DNSMOS), and average
             phone duration. This step discards unsuitable data to prepare high-quality speech data for model training.
           </li>
-        </ul>
+        </ul> -->
 
         <p class="text-p">
-          After processing, the pipeline outputs the speech data in JSON and WAV format. The JSON file contains
-          metadata such as the speaker ID, language, and transcription, while the WAV file contains the audio data.
+          After processing, the Emilia-Pipe outputs the speech data in JSON and MP3 format. The JSON file contains
+          metadata such as language, and transcription, while the MP3 file contains the speech data.
           The JSON file is structured as follows:
         </p>
 
@@ -245,7 +242,7 @@
 
 
         <p class="text-p">
-          The source code of Emilia-Pipe is available here: <a class="text-blue-500"
+          The source code for Emilia-Pipe is available here: <a class="text-blue-500"
             href="https://github.com/open-mmlab/Amphion">open-mmlab/Amphion</a>.
         </p>
 
