@@ -454,13 +454,13 @@
                       <source :src="'data/model_egs/' + item.path + '/' + sound.path">
                     </audio>
                     <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
+                    <div v-if="idx >= 2" class="text-sm font-base dark:text-white">
                       <b>Target Text:</b> {{ item.targetText }}
+                      <!-- 添加翻译文本 -->
                       <div v-if="item.targetText_translated">
                         <b>Translated Text:</b> {{ item.targetText_translated }}
                       </div>
                     </div>
-                    
                     <!-- 修改: 在对手文本的列显示对手文本 -->
                     <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
                       <b>Opponent Text:</b> {{ item.opponentText }}

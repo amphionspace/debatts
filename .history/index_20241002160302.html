@@ -454,8 +454,10 @@
                       <source :src="'data/model_egs/' + item.path + '/' + sound.path">
                     </audio>
                     <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
-                      <b>Target Text:</b> {{ item.targetText }}
+                    <div v-if="idx === 2" class="w-full flex-col space-y-2">
+                      <div class="text-sm font-base dark:text-white">
+                        <b>Target Text:</b> {{ item.targetText }}
+                      </div>
                       <div v-if="item.targetText_translated">
                         <b>Translated Text:</b> {{ item.targetText_translated }}
                       </div>

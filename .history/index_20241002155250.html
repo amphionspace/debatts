@@ -444,26 +444,23 @@
                 {{ item.name }}
               </div>
             </div>
-            <!-- body -->
-            <div v-for="(item, index) in data_model_egs">
+            <!-- Body -->
+            <div v-for="(item, index) in data_model_egs" :key="index">
               <div class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <!-- Modified to make target text span over the last two columns -->
                 <div class="flex w-full justify-between items-center">
                   <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-2">
-                    <!-- 显示音频控件 -->
-                    <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
+                    <!-- Display audio controls -->
+                    <audio controls class="w-full" controlsList="nodownload noremoteplayback">
                       <source :src="'data/model_egs/' + item.path + '/' + sound.path">
                     </audio>
-                    <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
-                      <b>Target Text:</b> {{ item.targetText }}
+                    <!-- Display target text above the last two columns -->
+                    <div v-if="idx === data_model_egs_sounds.length - 2" class="text-sm font-base dark:text-white w-full">
+                      <b>Target Text:</b> {{ item.targetText }}<br>
+                      <!-- Conditional rendering for translated text -->
                       <div v-if="item.targetText_translated">
                         <b>Translated Text:</b> {{ item.targetText_translated }}
                       </div>
-                    </div>
-                    
-                    <!-- 修改: 在对手文本的列显示对手文本 -->
-                    <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-                      <b>Opponent Text:</b> {{ item.opponentText }}
                     </div>
                   </div>
                 </div>

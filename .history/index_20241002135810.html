@@ -323,7 +323,7 @@
 
         <h5>Data Preview</h5>
         <p class="text-p">
-          To better understand the performance of the pipeline as well as the diversity and quality of the rebuttal dataset, we
+          To better understand the performance of the pipeline as well as the diversity and quality of the dataset, we
           have sampled a few speech examples below for preview.
         </p>
 
@@ -440,43 +440,33 @@
         <div class="w-full overflow-x-auto my-4">
           <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
-              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">
-                {{ item.name }}
-              </div>
+              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">{{
+                item.name }}</div>
             </div>
+
             <!-- body -->
             <div v-for="(item, index) in data_model_egs">
-              <div class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div class="flex w-full justify-between items-center">
-                  <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-2">
-                    <!-- 显示音频控件 -->
-                    <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
-                      <source :src="'data/model_egs/' + item.path + '/' + sound.path">
-                    </audio>
-                    <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
-                      <b>Target Text:</b> {{ item.targetText }}
-                      <div v-if="item.targetText_translated">
-                        <b>Translated Text:</b> {{ item.targetText_translated }}
-                      </div>
-                    </div>
-                    
-                    <!-- 修改: 在对手文本的列显示对手文本 -->
-                    <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-                      <b>Opponent Text:</b> {{ item.opponentText }}
-                    </div>
-                  </div>
+              <div
+                class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div class="ml-[260px] px-6 py-4 font-base dark:text-white"><b>Target Text:</b> {{ item.targetText }}
+                </div>
+              </div>
+              <div
+                class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div v-for="sound in data_model_egs_sounds" class="w-[260px] px-4 py-2">
+                  <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
+                    <source :src="'data/model_egs/' + item.path + '/' + sound.path">
+                  </audio>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
 
-  <!-- <script>
+  <script>
     const app = Vue.createApp({
       setup() {
         const data = [
@@ -686,223 +676,6 @@
 
     app.mount('#app')
   </script>
-   -->
-
-  <script>
-    const app = Vue.createApp({
-      setup() {
-        const data = [
-          { lang: 'En', duration: 46828 },
-          { lang: 'Zh', duration: 49922 },
-          { lang: 'De', duration: 1590 },
-          { lang: 'Fr', duration: 1381 },
-          { lang: 'Ja', duration: 1715 },
-          { lang: 'Ko', duration: 217 }
-        ];
-
-        const data_pipeline_egs = [
-          {
-            name: "English",
-            path: [
-              "en_1.mp3",
-              "en_3.mp3",
-            ]
-          },
-          {
-            name: "Chinese",
-            path: [
-              "zh_1.mp3",
-              "zh_3.mp3",
-            ]
-          },
-          {
-            name: "German",
-            path: [
-              "de_1.mp3",
-              "de_2.mp3",
-            ]
-          },
-          {
-            name: "French",
-            path: [
-              "fr_1.mp3",
-              "fr_2.mp3",
-            ]
-          },
-          {
-            name: "Japanese",
-            path: [
-              "ja_1.mp3",
-              "ja_2.mp3",
-            ]
-          },
-          {
-            name: "Korean",
-            path: [
-              "ko_1.mp3",
-              "ko_2.mp3",
-            ]
-          },
-        ]
-
-        const data_model_egs_sounds = [
-          {
-            name: "Speech Prompt",
-            path: "spk.wav"
-          },
-          {
-            name: "Opponent Prompt",
-            path: "oppo.wav"
-          },
-          {
-            name: "Baseline Model Generated",
-            path: "ori.wav"
-          },
-          {
-            name: "Debatts Generated",
-            path: "new.wav"
-          },
-        ]
-
-        const data_multilingual_egs_sounds = [
-          {
-            name: "Speech Prompt",
-            path: "ref.wav"
-          },
-          {
-            name: "SoundStorm",
-            path: "ss.wav"
-          },
-          {
-            name: "VoiceBox",
-            path: "vb.wav"
-          }
-        ]
-
-        const data_model_egs = [
-          {
-            path: "ss_1",
-            targetText: "嗯, 好的, 对方辩友来回应一下, 他要出现这个模仿, 不是因为我们更看重哪一个, 是因为粉丝的盲从效应好吧, 而这是他们身份的从众心理。那好, 对方辩友, 我想请问一下, 您是否承认专业成果具有公共性, 即可以拿出来被公众探讨这点, 您是否认同呢？",
-          },
-          {
-            path: "ss_2",
-            targetText: "给小孩讲花青素那个部分, 我们直接说, 宝宝, 你看那个树叶绿的时候长在树上黄了就掉下来, 这是生命的消失。所以你回答我的问题, 为什么呃, 您方要让他有那样曲径导向, 认为他有一个天堂的存在？如果小孩就想去那个天堂怎么办？",
-          },
-          {
-            path: "ss_3",
-            targetText: "所以今天对方辩友让我们不要论证好的科学, 但是您方给我方扣的帽子全都是七三幺部队, 这样没有人伦的科学。在您方看来, 我方科学的发展只能违背违背伦理才能发展, 是吧？我方科学要发展, 可以解决一部分安全感问题, 不代表我们要解决所有的问题, 不代表所有问题, 只能通过科学来解决",
-          },
-          {
-            path: "ss_4",
-            targetText: "对所以我们发现, 如果你对一个运动的精神有错误的理解, 该否定的不是这项运动本身的合理性以及存在的意义, 你更应该正本清源",
-          },
-          {
-            path: "ss_5",
-            targetText: "你们那些所有的例子, 就是恰恰是在大家广泛讨论之后, 我们得到一个破镜的真相, 有了盖棺定论。比如说现在俄乌冲突双方各执一词, 有的人说乌克兰就一定是坏人。有的人说, 俄罗斯就一定是坏人, 你怎么判断什么是偏见？",
-          },
-        ]
-
-        const data_multilingual_egs = [
-          {
-            name: "English",
-            path: "en",
-            items: [
-              {
-                path: "1",
-                targetText: "Dealing with family secrets is never easy. Yet, sometimes, omission is a form of protection, intending to safeguard some from the harsh truths. One day, I hope you understand the reasons behind my actions. Until then, Anna, please, bear with me"
-              },
-              {
-                path: "2",
-                targetText: "I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring. Respect me and I'll nurture you; ignore me and you shall face the consequences."
-              }
-            ]
-          },
-          {
-            name: "Chinese",
-            path: "zh",
-            items: [
-              {
-                path: "1",
-                targetText: "突然，身边一阵笑声。我看着他们，意气风发地挺直了胸膛，甩了甩那稍显肉感的双臂，轻笑道：\"我身上的肉，是为了掩饰我爆棚的魅力，否则，岂不吓坏了你们呢？\""
-              },
-              {
-                path: "2",
-                targetText: "气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”"
-              }
-            ]
-          },
-          {
-            name: "German",
-            path: "de",
-            items: [
-              {
-                path: "2",
-                targetText: "Er ist damit in der Geschichte des Gerichts der bisher einzige Richter aus Kanada."
-              },
-              {
-                path: "1",
-                targetText: "Der Film bedeutete den Durchbruch der Steadicam."
-              },
-            ]
-          },
-          {
-            name: "French",
-            path: "fr",
-            items: [
-              {
-                path: "2",
-                targetText: "Connu comme grand buveur depuis longtemps, il sombre dans l’alcoolisme."
-              },
-              {
-                path: "1",
-                targetText: "Il est le, principal traducteur de la Bible en tahitien."
-              },
-            ]
-          },
-          {
-            name: "Japanese",
-            path: "ja",
-            items: [
-              {
-                path: "1",
-                targetText: "ここに物を置いてはいけません"
-              },
-              {
-                path: "2",
-                targetText: "答えを書いた紙を出してください"
-              }
-            ]
-          },
-          {
-            name: "Korean",
-            path: "ko",
-            items: [
-              {
-                path: "1",
-                targetText: "하나님이 주셔서 나와 함께하게 하신 여자"
-              },
-              {
-                path: "2",
-                targetText: "내가 너로 여자와 원수가 되게하고 너의 후손도 여자의 후손과 원수가 되게 하리니"
-              }
-            ]
-          },
-        ]
-
-        return {
-          data_pipeline_egs,
-          data_model_egs_sounds,
-          data_multilingual_egs_sounds,
-          data_model_egs,
-          data_multilingual_egs,
-          data
-        }
-      }
-    })
-
-    app.mount('#app')
-  </script>
-  
-  </body>
+</body>
 
 </html>

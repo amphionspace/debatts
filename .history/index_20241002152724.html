@@ -440,38 +440,28 @@
         <div class="w-full overflow-x-auto my-4">
           <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
-              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">
-                {{ item.name }}
-              </div>
+              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">{{
+                item.name }}</div>
             </div>
+
             <!-- body -->
             <div v-for="(item, index) in data_model_egs">
-              <div class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div class="flex w-full justify-between items-center">
-                  <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-2">
-                    <!-- 显示音频控件 -->
-                    <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
-                      <source :src="'data/model_egs/' + item.path + '/' + sound.path">
-                    </audio>
-                    <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
-                      <b>Target Text:</b> {{ item.targetText }}
-                      <div v-if="item.targetText_translated">
-                        <b>Translated Text:</b> {{ item.targetText_translated }}
-                      </div>
-                    </div>
-                    
-                    <!-- 修改: 在对手文本的列显示对手文本 -->
-                    <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-                      <b>Opponent Text:</b> {{ item.opponentText }}
-                    </div>
-                  </div>
+              <div
+                class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div class="ml-[260px] px-6 py-4 font-base dark:text-white"><b>Target Text:</b> {{ item.targetText }}
+                </div>
+              </div>
+              <div
+                class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div v-for="sound in data_model_egs_sounds" class="w-[260px] px-4 py-2">
+                  <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
+                    <source :src="'data/model_egs/' + item.path + '/' + sound.path">
+                  </audio>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -748,19 +738,23 @@
         const data_model_egs_sounds = [
           {
             name: "Speech Prompt",
-            path: "spk.wav"
+            path: "ref.wav"
           },
           {
-            name: "Opponent Prompt",
-            path: "oppo.wav"
+            name: "SoundStorm-Emilia",
+            path: "ar_emilia.wav"
           },
           {
-            name: "Baseline Model Generated",
-            path: "ori.wav"
+            name: "SoundStorm-MLS",
+            path: "ar_mls.wav"
           },
           {
-            name: "Debatts Generated",
-            path: "new.wav"
+            name: "VoiceBox-Emilia",
+            path: "nar_emilia.wav"
+          },
+          {
+            name: "VoiceBox-MLS",
+            path: "nar_mls.wav"
           },
         ]
 
@@ -789,16 +783,8 @@
             targetText: "给小孩讲花青素那个部分, 我们直接说, 宝宝, 你看那个树叶绿的时候长在树上黄了就掉下来, 这是生命的消失。所以你回答我的问题, 为什么呃, 您方要让他有那样曲径导向, 认为他有一个天堂的存在？如果小孩就想去那个天堂怎么办？",
           },
           {
-            path: "ss_3",
+            path: "ss_2",
             targetText: "所以今天对方辩友让我们不要论证好的科学, 但是您方给我方扣的帽子全都是七三幺部队, 这样没有人伦的科学。在您方看来, 我方科学的发展只能违背违背伦理才能发展, 是吧？我方科学要发展, 可以解决一部分安全感问题, 不代表我们要解决所有的问题, 不代表所有问题, 只能通过科学来解决",
-          },
-          {
-            path: "ss_4",
-            targetText: "对所以我们发现, 如果你对一个运动的精神有错误的理解, 该否定的不是这项运动本身的合理性以及存在的意义, 你更应该正本清源",
-          },
-          {
-            path: "ss_5",
-            targetText: "你们那些所有的例子, 就是恰恰是在大家广泛讨论之后, 我们得到一个破镜的真相, 有了盖棺定论。比如说现在俄乌冲突双方各执一词, 有的人说乌克兰就一定是坏人。有的人说, 俄罗斯就一定是坏人, 你怎么判断什么是偏见？",
           },
         ]
 

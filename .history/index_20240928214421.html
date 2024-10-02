@@ -110,13 +110,10 @@
             <li>
               <a href="#pipeline" class="list-select">Pipeline</a>
             </li>
-            </li>
-              <a href="#model" class="list-select">Model</a>
-            </li>
             <li>
               <a href="#demos" class="list-select">Demos</a>
             </li>
-            <!-- <li>
+            <li>
               <a href="https://github.com/open-mmlab/Amphion/tree/main/preprocessors/Emilia" class="list-select" target="_blank">
                 <svg class="w-6 h-6 text-gray-900 hover:text-blue-700" aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -130,7 +127,7 @@
               <a href="https://huggingface.co/datasets/amphion/Emilia-Dataset" class="list-select" target="_blank">
                 <img class="h-6 w-6" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"/> 
               </a>
-            </li> -->
+            </li>
           </ul>
         </div>
       </div>
@@ -139,15 +136,11 @@
     <div class="p-5 md:p-0 mt-16 max-w-screen-xl mx-auto">
       <div class="p-6" id="home">
 
-        <!-- <div class="mt-8 mb-8">
-          <h1>Emilia: An Extensive, Multilingual, and Diverse Speech Dataset for Large-Scale Speech Generation</h1>
-        </div> -->
         <div class="mt-8 mb-8">
-          <h1>Debatts: Zero-Shot Debating Text-to-Speech Synthesis</h1>
+          <h1>Emilia: An Extensive, Multilingual, and Diverse Speech Dataset for Large-Scale Speech Generation</h1>
         </div>
 
-        <!-- 添加各种链接 -->
-        <!-- <div class="flex gap-2 justify-center flex-wrap">
+        <div class="flex gap-2 justify-center flex-wrap">
           <a href="https://arxiv.org/abs/2407.05361" target="_blank">
             <img src="https://img.shields.io/badge/arXiv-Paper-COLOR.svg">
           </a>
@@ -163,28 +156,38 @@
           <a href="https://emilia-dataset.github.io/Emilia-Demo-Page/" target="_blank">
             <img src="https://img.shields.io/badge/WebPage-Demo-red">
           </a>
-        </div> -->
+        </div>
 
         <div class="max-w-[900px] mx-auto mt-8 mb-16">
           <div class="text-center pb-10 flex flex-col gap-3">
             <div class="text-sm">
-              <span class="author">Yiqiao Huang<sup>1</sup> </span>
-              <span class="author">Yuancheng Wang<sup>1</sup> </span>
+              <span class="author">Haorui He<sup>1,★</sup> </span>
+              <span class="author">Zengqiang Shang<sup>2,★</sup> </span>
+              <span class="author">Chaoren Wang<sup>1,★</sup> </span>
+              <span class="author">Xuyuan Li<sup>2,3,★</sup></span>
+              <span class="author">Yicheng Gu<sup>1</sup> </span>
+              <span class="author">Hua Hua<sup>2,3</sup> </span>
+              <span class="author">Liwei Liu<sup>1</sup> </span>
+              <span class="author">Chen Yang<sup>2,3</sup> </span>
               <span class="author">Jiaqi Li<sup>1</sup> </span>
-              <span class="author">Haotian Guo<sup>1</sup></span>
-              <span class="author">Haorui He<sup>1</sup> </span>
-              <span class="author">Shunsi Zhang<sup>2</sup> </span>
-              <span class="author">Zhizheng Wu<sup>1‡</sup> </span>
+              <span class="author">Peiyang Shi<sup>2</sup></span>
+              <span class="author">Yuancheng Wang<sup>1</sup> </span>
+              <span class="author">Kai Chen<sup>4</sup> </span>
+              <span class="author">Pengyuan Zhang<sup>2,3,‡</sup> </span>
+              <span class="author">Zhizheng Wu<sup>1,4,‡</sup></span>
             </div>
             <div class="text-sm">
               <span class="affiliation"><sup>1</sup> The Chinese University of Hong Kong, Shenzhen, China</span>
-              <span class="affiliation"><sup>2</sup> Guangzhou Quwan Network Technology, Guangzhou, China</span>
+              <span class="affiliation"><sup>2</sup> Laboratory of Speech & Intelligent Information Processing, Institute of Acoustics, CAS, China</span>
+              <span class="affiliation"><sup>3</sup> University of Chinese Academy of Sciences, Beijing, China</span>
+              <span class="affiliation"><sup>4</sup> Shanghai AI Laboratory, Shanghai, China</span>
             </div>
             <div class="text-sm">
+              <span class="author"><sup>★</sup> Equal contribution, and the names are listed in random order.</span>
               <span class="author"><sup>‡</sup> Corresponding authors.</span>
             </div>
           </div>
-          <!-- <h5>Abstract</h5>
+          <h5>Abstract</h5>
           <p class="text-p">
             Recent advancements in speech generation models have been significantly driven by the use of large-scale
             training data. However, producing highly spontaneous, human-like speech remains a challenge due to the
@@ -198,25 +201,22 @@
             training data with speech annotations. Experimental results demonstrate the effectiveness of both Emilia and
             Emilia-Pipe. Demos are available at: <a
               href="https://emilia-dataset.github.io/Emilia-Demo-Page/">https://emilia-dataset.github.io/Emilia-Demo-Page/</a>.
-          </p> -->
-          <h5>Abstract</h5>
-          <p class="text-p">
-          In debating, rebuttal is one of the most critical stages, where a speaker addresses the arguments presented by the opposing side. During this process, the speaker synthesizes their own persuasive articulation given the context from the opposing side. This work proposes a novel zero-shot text-to-speech synthesis system for rebuttal, namely Debatts. Debatts takes two speech prompts, one from the opposing side (i.e. opponent) and one from the speaker. The prompt from the opponent is supposed to provide debating style prosody, and the prompt from the speaker provides identity information. In particular, we pretrain the Debatts system from in-the-wild dataset, and integrate an additional reference encoder to take debating prompt for style. In addition, we also create a debating dataset to develop Debatts. In this setting, Debatts can generate a debating-style speech in rebuttal for any voices. Experimental results confirm the effectiveness of the proposed system in comparison with the classic zero-shot TTS systems.
           </p>
         </div>
 
-        <h4 id="dataset">The Debatts-Data Dataset</h4>
+        <h4 id="dataset">The Emilia Dataset</h4>
 
         <h5 id="dataset-overview">Overview</h5>
         <p class="text-p">
-          The <code>Debatts-Data</code> dataset is constructed from a vast collection of professional Madarin speech data sourced from diverse
-          video platforms and podcasts on the Internet. This variety ensures the dataset captures a wide array of real
+          The <code>Emilia</code> dataset is constructed from a vast collection of speech data sourced from diverse
+          video platforms and podcasts on the Internet, covering various content genres such as talk shows, interviews,
+          debates, sports commentary, and audiobooks. This variety ensures the dataset captures a wide array of real
           human speaking styles. The initial version of the Emilia dataset includes a total of 101,654 hours of
           multilingual speech data in six different languages: English, French, German, Chinese, Japanese, and Korean.
           The table and chart below provide the duration statistics for each language in the dataset.
         </p>
 
-        <!-- <div class="my-4 grid grid-cols-1 mx-auto max-w-screen-sm md:grid-cols-2">
+        <div class="my-4 grid grid-cols-1 mx-auto max-w-screen-sm md:grid-cols-2">
           <div class="relative overflow-x-auto mx-auto">
             <div class="relative w-fit text-sm text-left rtl:text-right text-gray-900 dark:text-gray-200">
               <div class="flex w-full text-center text-gray-900 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
@@ -234,96 +234,30 @@
                 </div>
               </div>
             </div>
-          </div> -->
-          <div class="my-4 overflow-x-auto mx-auto max-w-screen-md">
-            <table class="w-full text-sm text-left text-gray-900 dark:text-gray-200">
-              <caption class="text-center font-bold mb-4">
-                Comparison of publicly Debate datasets.
-              </caption>
-              <thead class="bg-gray-50 dark:bg-gray-700">
-                <tr>
-                  <th class="px-4 py-2 font-bold">Dataset</th>
-                  <th class="px-4 py-2 font-bold">Lang</th>
-                  <th class="px-4 py-2 font-bold">Num of Spks</th>
-                  <th class="px-4 py-2 font-bold">Duration(hrs)</th>
-                  <th class="px-4 py-2 font-bold">Text/Speech</th>
-                  <th class="px-4 py-2 font-bold">SR(kHz)</th>
-                  <th class="px-4 py-2 font-bold">Wild/Studio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td class="px-4 py-2">V.Debate<sup>[1]</sup></td>
-                  <td class="px-4 py-2">EN</td>
-                  <td class="px-4 py-2">-</td>
-                  <td class="px-4 py-2">24 (E.)</td>
-                  <td class="px-4 py-2">T</td>
-                  <td class="px-4 py-2">-</td>
-                  <td class="px-4 py-2">W</td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td class="px-4 py-2">Record<sup>[2]</sup></td>
-                  <td class="px-4 py-2">EN</td>
-                  <td class="px-4 py-2">10</td>
-                  <td class="px-4 py-2">6 (E.)</td>
-                  <td class="px-4 py-2">T+S</td>
-                  <td class="px-4 py-2">44.1</td>
-                  <td class="px-4 py-2">S</td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td class="px-4 py-2">Rebuttal<sup>[3]</sup></td>
-                  <td class="px-4 py-2">EN</td>
-                  <td class="px-4 py-2">14</td>
-                  <td class="px-4 py-2">27 (E.)</td>
-                  <td class="px-4 py-2">T+S</td>
-                  <td class="px-4 py-2">-</td>
-                  <td class="px-4 py-2">S</td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td class="px-4 py-2">DBates<sup>[4]</sup></td>
-                  <td class="px-4 py-2">EN</td>
-                  <td class="px-4 py-2">140</td>
-                  <td class="px-4 py-2">70 (E.)</td>
-                  <td class="px-4 py-2">T+S</td>
-                  <td class="px-4 py-2">16</td>
-                  <td class="px-4 py-2">W</td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 font-bold">
-                  <td class="px-4 py-2">Debatts-data</td>
-                  <td class="px-4 py-2">ZH</td>
-                  <td class="px-4 py-2">2350</td>
-                  <td class="px-4 py-2">111.9</td>
-                  <td class="px-4 py-2">T+S</td>
-                  <td class="px-4 py-2">16</td>
-                  <td class="px-4 py-2">W</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- 脚注部分 -->
-            <!-- <div class="mt-4 text-sm text-gray-700 dark:text-gray-300">
-              <p><strong>[1]</strong> Ruiz-Dolz, R., Nofre, M., Taulé, M., Heras, S., & García-Fornes, A. (2021). Vivesdebate: A new annotated multilingual corpus of argumentation in a debate tournament. <em>Applied Sciences</em>, 11(15), 7160.</p>
-              <p><strong>[2]</strong> Mirkin, S., Jacovi, M., Lavee, T., Kuo, H. K., Thomas, S., Sager, L., ... & Slonim, N. (2017). A recorded debating dataset. <em>arXiv preprint arXiv:1709.06438</em>.</p>
-              <p><strong>[3]</strong> Orbach, M., Bilu, Y., Gera, A., Kantor, Y., Dankin, L., Lavee, T., ... & Slonim, N. (2019). A dataset of general-purpose rebuttal. <em>arXiv preprint arXiv:1909.00393</em>.</p>
-              <p><strong>[4]</strong> Sen, T. K., Naven, G., Gerstner, L., Bagley, D., Baten, R. A., Rahman, W., ... & Hoque, E. (2021). Dbates: Dataset for discerning benefits of audio, textual, and facial expression features in competitive debate speeches. <em>IEEE Transactions on Affective Computing</em>, 14(2), 1028-1043.</p>
-            </div> -->
-            <!-- 脚注部分 -->
-            <div class="mt-4 text-sm text-gray-700 dark:text-gray-300">
-              <p><strong>[1]</strong> Vivesdebate: A new annotated multilingual corpus of argumentation in a debate tournament. <em>Applied Sciences</em>, 11(15), 7160.</p>
-              <p><strong>[2]</strong> A recorded debating dataset. <em>arXiv preprint arXiv:1709.06438</em>.</p>
-              <p><strong>[3]</strong> A dataset of general-purpose rebuttal. <em>arXiv preprint arXiv:1909.00393</em>.</p>
-              <p><strong>[4]</strong> Dbates: Dataset for discerning benefits of audio, textual, and facial expression features in competitive debate speeches. <em>IEEE Transactions on Affective Computing</em>, 14(2), 1028-1043.</p>
-            </div>
           </div>
-          
-          <!-- <div class="w-[400px] h-[300px] flex mx-auto">
-            <img src="./static/dataset_info.svg"></img>
-          </div>
-        </div> -->
 
+          <div class="w-[280px] h-[280px] flex mx-auto">
+            <img src="./static/emilia_data.svg"></img>
+          </div>
+        </div>
+
+        <div class="w-full"></div>
+          <img class="mx-auto max-h-[280px]" src="./static/pipeline.png"></img>
+        </div>
+
+        <p class="text-p">
+          The figure below compares the acoustic and semantic diversities between Emilia and MLS datasets, which is
+          sourced from audiobooks. The more scattered pattern highlights the Emilia dataset as encompassing a richer
+          acoustic characteristic and semantic coverage compared to the existing audiobook dataset.
+        </p>
+
+        <div class="w-full">
+          <img class="mx-auto max-h-[280px]" src="./static/comparasion_dataset.png"></img>
+        </div>
 
         <h5>Data Preview</h5>
         <p class="text-p">
-          To better understand the performance of the pipeline as well as the diversity and quality of the rebuttal dataset, we
+          To better understand the performance of the pipeline as well as the diversity and quality of the dataset, we
           have sampled a few speech examples below for preview.
         </p>
 
@@ -345,41 +279,33 @@
           </div>
         </div>
 
-        <h4 id="pipeline">The Debatts-Data Preprocessing Pipeline</h4>
+        <h4 id="pipeline">The Emilia-Pipe Preprocessing Pipeline</h4>
         <p class="text-p">
-          <code>Debatts-Data Pipe</code> is the first open-source preprocessing pipeline designed to transform in-the-wild
-          professional debating speech data into annotated, high-quality rebuttal data for text-to-speech generation. 
-          It encompasses five key steps: moderator detection, rebuttal session extraction, speaker diarization,
-          overlap deletion, merging, and speech enhancement with metadata extraction. 
-          The diagram below outlines the Debatts-Data Pipe workflow. Initially, the pipeline introduces a precise methodology 
-          for detecting moderators within extensive competitive speech datasets, facilitating the extraction of relevant sections 
-          based on moderator cues. This approach is adaptable to other languages with minimal modifications and can be extended to any context involving moderator-led discussions.
+          <code>Emilia-Pipe</code> is the first open-source preprocessing pipeline designed to transform in-the-wild
+          speech data into high-quality training data with annotations for speech generation. It consists of six major
+          steps: Standardization, Source Separation, Speaker Diarization, Fine-grained Segmentation by VAD, ASR, and
+          Filtering. The figure below provides an overview of the Emilia-Pipe.
         </p>
-        <br>
 
-        <!-- <div class="flex mx-auto justify-center max-w-screen-lg py-8">
+        <div class="flex mx-auto justify-center max-w-screen-lg py-8">
           <img src="./static/emilia_pipe.svg"></img>
-        </div> -->
-        <img class="mx-auto" src="./static/dataset_pipeline_new.svg" style="width: 90%; height: auto;">
+        </div>
 
-        <br>
         <p class="text-p">
-          After processing, the Debatts-Data outputs the speech data in JSON and WAV format. The JSON file contains
-          metadata such as language, transcription, style embedding and conversational context path, while the WAV file contains the speech data. The JSON file is
-          structured as in the last step of pipeline. And an illustration of rebuttal format is shown below:
+          After processing, the Emilia-Pipe outputs the speech data in JSON and MP3 format. The JSON file contains
+          metadata such as language, and transcription, while the MP3 file contains the speech data. The JSON file is
+          structured as follows:
         </p>
-        <img class="mx-auto" src="./static/dataset_new_eample.svg" style="width: 35%; height: auto;">
+
+        <div class="flex mx-auto justify-center max-w-screen-lg py-6">
+          <img class="min-h-[160px]" src="./static/json_example.svg"></img>
+        </div>
 
         <!-- <p class="text-p">
           The source code for Emilia-Pipe is available here: <a class="text-blue-500"
             href="https://github.com/open-mmlab/Amphion">open-mmlab/Amphion</a>.
         </p> -->
 
-        <h4 id="Model">The Debatts Model Architecture</h4>
-        <p class="text-p">
-          <code>Debatts</code> is the first zero-shot debating text-to-speech (TTS) system that leverages the opponent's speech as a style prompt, alongside the target speaker's speech as a speaker identification prompt. It features a two-stage model architecture comprising a text-to-semantic stage and a semantic-to-acoustic stage. In the first stage, the model predicts target semantic tokens by integrating the semantic tokens from both the opponent and the target speaker, along with the text tokens. In the second stage, it generates speech with a debating style based on the concatenated target speaker's and predicted semantic tokens, combined with the target speaker's acoustic tokens. This approach enables the generation of natural and expressive rebuttal speech for any voice.
-        </p>
-        <img class="mx-auto" src="./static/model_architecture_new.svg" style="width: 90%; height: auto;">
 
         <h4 id="demos">Demos</h4>
         <p class="text-p">
@@ -440,43 +366,33 @@
         <div class="w-full overflow-x-auto my-4">
           <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
             <div class="flex w-fit text-center bg-gray-50 dark:bg-gray-700">
-              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">
-                {{ item.name }}
-              </div>
+              <div v-for="item in data_model_egs_sounds" scope="col" class="w-[260px] shrink-0 px-6 py-4 font-bold">{{
+                item.name }}</div>
             </div>
+
             <!-- body -->
             <div v-for="(item, index) in data_model_egs">
-              <div class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <div class="flex w-full justify-between items-center">
-                  <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-2">
-                    <!-- 显示音频控件 -->
-                    <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
-                      <source :src="'data/model_egs/' + item.path + '/' + sound.path">
-                    </audio>
-                    <!-- 修改: 仅在最后两列显示目标文本 -->
-                    <div v-if="idx === 2" class="col-span-2 text-sm font-base dark:text-white">
-                      <b>Target Text:</b> {{ item.targetText }}
-                      <div v-if="item.targetText_translated">
-                        <b>Translated Text:</b> {{ item.targetText_translated }}
-                      </div>
-                    </div>
-                    
-                    <!-- 修改: 在对手文本的列显示对手文本 -->
-                    <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-                      <b>Opponent Text:</b> {{ item.opponentText }}
-                    </div>
-                  </div>
+              <div
+                class="flex w-full bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div class="ml-[260px] px-6 py-4 font-base dark:text-white"><b>Target Text:</b> {{ item.targetText }}
+                </div>
+              </div>
+              <div
+                class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div v-for="sound in data_model_egs_sounds" class="w-[260px] px-4 py-2">
+                  <audio controls class="w-[250px]" controlsList="nodownload noremoteplayback">
+                    <source :src="'data/model_egs/' + item.path + '/' + sound.path">
+                  </audio>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>
 
-  <!-- <script>
+  <script>
     const app = Vue.createApp({
       setup() {
         const data = [
@@ -686,223 +602,6 @@
 
     app.mount('#app')
   </script>
-   -->
-
-  <script>
-    const app = Vue.createApp({
-      setup() {
-        const data = [
-          { lang: 'En', duration: 46828 },
-          { lang: 'Zh', duration: 49922 },
-          { lang: 'De', duration: 1590 },
-          { lang: 'Fr', duration: 1381 },
-          { lang: 'Ja', duration: 1715 },
-          { lang: 'Ko', duration: 217 }
-        ];
-
-        const data_pipeline_egs = [
-          {
-            name: "English",
-            path: [
-              "en_1.mp3",
-              "en_3.mp3",
-            ]
-          },
-          {
-            name: "Chinese",
-            path: [
-              "zh_1.mp3",
-              "zh_3.mp3",
-            ]
-          },
-          {
-            name: "German",
-            path: [
-              "de_1.mp3",
-              "de_2.mp3",
-            ]
-          },
-          {
-            name: "French",
-            path: [
-              "fr_1.mp3",
-              "fr_2.mp3",
-            ]
-          },
-          {
-            name: "Japanese",
-            path: [
-              "ja_1.mp3",
-              "ja_2.mp3",
-            ]
-          },
-          {
-            name: "Korean",
-            path: [
-              "ko_1.mp3",
-              "ko_2.mp3",
-            ]
-          },
-        ]
-
-        const data_model_egs_sounds = [
-          {
-            name: "Speech Prompt",
-            path: "spk.wav"
-          },
-          {
-            name: "Opponent Prompt",
-            path: "oppo.wav"
-          },
-          {
-            name: "Baseline Model Generated",
-            path: "ori.wav"
-          },
-          {
-            name: "Debatts Generated",
-            path: "new.wav"
-          },
-        ]
-
-        const data_multilingual_egs_sounds = [
-          {
-            name: "Speech Prompt",
-            path: "ref.wav"
-          },
-          {
-            name: "SoundStorm",
-            path: "ss.wav"
-          },
-          {
-            name: "VoiceBox",
-            path: "vb.wav"
-          }
-        ]
-
-        const data_model_egs = [
-          {
-            path: "ss_1",
-            targetText: "嗯, 好的, 对方辩友来回应一下, 他要出现这个模仿, 不是因为我们更看重哪一个, 是因为粉丝的盲从效应好吧, 而这是他们身份的从众心理。那好, 对方辩友, 我想请问一下, 您是否承认专业成果具有公共性, 即可以拿出来被公众探讨这点, 您是否认同呢？",
-          },
-          {
-            path: "ss_2",
-            targetText: "给小孩讲花青素那个部分, 我们直接说, 宝宝, 你看那个树叶绿的时候长在树上黄了就掉下来, 这是生命的消失。所以你回答我的问题, 为什么呃, 您方要让他有那样曲径导向, 认为他有一个天堂的存在？如果小孩就想去那个天堂怎么办？",
-          },
-          {
-            path: "ss_3",
-            targetText: "所以今天对方辩友让我们不要论证好的科学, 但是您方给我方扣的帽子全都是七三幺部队, 这样没有人伦的科学。在您方看来, 我方科学的发展只能违背违背伦理才能发展, 是吧？我方科学要发展, 可以解决一部分安全感问题, 不代表我们要解决所有的问题, 不代表所有问题, 只能通过科学来解决",
-          },
-          {
-            path: "ss_4",
-            targetText: "对所以我们发现, 如果你对一个运动的精神有错误的理解, 该否定的不是这项运动本身的合理性以及存在的意义, 你更应该正本清源",
-          },
-          {
-            path: "ss_5",
-            targetText: "你们那些所有的例子, 就是恰恰是在大家广泛讨论之后, 我们得到一个破镜的真相, 有了盖棺定论。比如说现在俄乌冲突双方各执一词, 有的人说乌克兰就一定是坏人。有的人说, 俄罗斯就一定是坏人, 你怎么判断什么是偏见？",
-          },
-        ]
-
-        const data_multilingual_egs = [
-          {
-            name: "English",
-            path: "en",
-            items: [
-              {
-                path: "1",
-                targetText: "Dealing with family secrets is never easy. Yet, sometimes, omission is a form of protection, intending to safeguard some from the harsh truths. One day, I hope you understand the reasons behind my actions. Until then, Anna, please, bear with me"
-              },
-              {
-                path: "2",
-                targetText: "I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring. Respect me and I'll nurture you; ignore me and you shall face the consequences."
-              }
-            ]
-          },
-          {
-            name: "Chinese",
-            path: "zh",
-            items: [
-              {
-                path: "1",
-                targetText: "突然，身边一阵笑声。我看着他们，意气风发地挺直了胸膛，甩了甩那稍显肉感的双臂，轻笑道：\"我身上的肉，是为了掩饰我爆棚的魅力，否则，岂不吓坏了你们呢？\""
-              },
-              {
-                path: "2",
-                targetText: "气氛变得沉郁起来。乍看之下，一切的困扰仿佛都围绕在我身边。我皱着眉头，感受着那份压力，但我知道我不能放弃，不能认输。于是，我深吸一口气，心底的声音告诉我：“无论如何，都要冷静下来，重新开始。”"
-              }
-            ]
-          },
-          {
-            name: "German",
-            path: "de",
-            items: [
-              {
-                path: "2",
-                targetText: "Er ist damit in der Geschichte des Gerichts der bisher einzige Richter aus Kanada."
-              },
-              {
-                path: "1",
-                targetText: "Der Film bedeutete den Durchbruch der Steadicam."
-              },
-            ]
-          },
-          {
-            name: "French",
-            path: "fr",
-            items: [
-              {
-                path: "2",
-                targetText: "Connu comme grand buveur depuis longtemps, il sombre dans l’alcoolisme."
-              },
-              {
-                path: "1",
-                targetText: "Il est le, principal traducteur de la Bible en tahitien."
-              },
-            ]
-          },
-          {
-            name: "Japanese",
-            path: "ja",
-            items: [
-              {
-                path: "1",
-                targetText: "ここに物を置いてはいけません"
-              },
-              {
-                path: "2",
-                targetText: "答えを書いた紙を出してください"
-              }
-            ]
-          },
-          {
-            name: "Korean",
-            path: "ko",
-            items: [
-              {
-                path: "1",
-                targetText: "하나님이 주셔서 나와 함께하게 하신 여자"
-              },
-              {
-                path: "2",
-                targetText: "내가 너로 여자와 원수가 되게하고 너의 후손도 여자의 후손과 원수가 되게 하리니"
-              }
-            ]
-          },
-        ]
-
-        return {
-          data_pipeline_egs,
-          data_model_egs_sounds,
-          data_multilingual_egs_sounds,
-          data_model_egs,
-          data_multilingual_egs,
-          data
-        }
-      }
-    })
-
-    app.mount('#app')
-  </script>
-  
-  </body>
+</body>
 
 </html>
