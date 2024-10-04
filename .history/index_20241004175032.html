@@ -315,7 +315,21 @@
         <br>
 
         <!-- data_pipeline_egs:table -->
-        
+        <!-- <div class="w-full overflow-x-auto">
+          <div class="relative w-fit mx-auto text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
+            <!-- body -->
+            <div v-for="(item, index) in data_pipeline_egs">
+              <div
+                class="flex bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <div class="w-[100px] px-6 h-full my-auto font-bold dark:text-white">{{ item.name }}</div>
+                <div v-for="path in item.path" class="w-[310px] px-4 py-2">
+                  <audio controls>
+                    <source :src="'data/pipeline_egs/' + path">
+                  </audio>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
 
         <h4 id="pipeline">The Debatts-Data Preprocessing Pipeline</h4>
