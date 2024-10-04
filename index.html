@@ -315,6 +315,7 @@
         <br>
 
         <!-- data_pipeline_egs:table -->
+        
         </div>
 
         <h4 id="pipeline">The Debatts-Data Preprocessing Pipeline</h4>
@@ -384,18 +385,20 @@
       <audio controls class="w-full" controlsList="nodownload noremoteplayback">
         <source :src="'data/model_egs/' + item.path + '/' + sound.path">
       </audio>
-      <!-- 对手文本显示在对应音频下方 -->
-      <!-- <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-        <b>Opponent Text:</b> {{ item.opponentText }}
-      </div> -->
     </div>
   </div>
-  <!-- 目标文本行 -->
-  <div class="grid grid-cols-4 mt-2">
-    <!-- 空白间隔，用于对齐目标文本 -->
-    <div class="col-span-2"></div>
-    <!-- 目标文本，跨越最后三个音频控件的宽度 -->
-    <div class="col-span-2 px-4 py-2 text-left text-sm font-base dark:text-white">
+  <!-- 对手文本与目标文本行 -->
+  <div class="grid grid-cols-4 items-center mt-2">
+    <div class="col-span-1"></div>
+    <!-- 对手文本 -->
+    <div class="col-span-1 px-4 text-sm font-base dark:text-white">
+      <div v-if="data_model_egs_sounds.some(sound => sound.path === 'oppo.wav')">
+        <b>Opponent Text:</b> {{ item.opponentText }}
+      </div>
+    </div>
+    
+    <!-- 目标文本，跨越最后两个音频控件的宽度 -->
+    <div class="col-span-2 px-4 py-2 text-left text-sm font-base dark:text-white ">
       <div><b>Target Text:</b> {{ item.targetText }}</div>
       <div v-if="item.targetText_translated">
         <b>Translated Text:</b> {{ item.targetText_translated }}
@@ -403,6 +406,7 @@
     </div>
   </div>
 </div>
+
 
 <br>
 <br>
@@ -423,32 +427,35 @@
 <!-- 内容部分 -->
 <div v-for="(item, index) in data_model_emi_egs" class="my-4">
   <!-- 音频控件行 -->
-  <div class="grid grid-cols-4 bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+  <div class="grid grid-cols-4 items-start bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
     <!-- 遍历所有音频控件 -->
     <div v-for="(sound, idx) in data_model_emi_egs_sounds" :key="sound.name" class="px-6 py-4 text-center">
       <!-- 音频控件 -->
       <audio controls class="w-full" controlsList="nodownload noremoteplayback">
         <source :src="'data/model_egs_emi/' + item.path + '/' + sound.path">
       </audio>
-      <!-- 对手文本显示在对应音频下方 -->
-      <!-- <div v-if="sound.path === 'oppo.wav'" class="text-sm font-base dark:text-white">
-        <b>Opponent Text:</b> {{ item.opponentText }}
-      </div> -->
     </div>
   </div>
-  <!-- 目标文本行 -->
-  <div class="grid grid-cols-4 mt-2">
-    <!-- 空白间隔，用于对齐目标文本 -->
-    <div class="col-span-2"></div>
-    <!-- 目标文本，跨越最后2个音频控件的宽度 -->
-    <div class="col-span-2 px-4 py-2 text-left text-sm font-base dark:text-white">
-        <div><b>Target Text:</b> {{ item.targetText }}</div>
-        <div v-if="item.targetText_translated">
-          <b>Translated Text:</b> {{ item.targetText_translated }}
-        </div>
+  <!-- 对手文本与目标文本行 -->
+  <div class="grid grid-cols-4 items-center mt-2">
+    <div class="col-span-1"></div>
+    <!-- 空白间隔，用于对齐 -->
+    <div class="col-span-1 text-sm font-base dark:text-white">
+      <div v-if="data_model_emi_egs_sounds.some(sound => sound.path === 'oppo.wav')">
+        <b>Opponent Text:</b> {{ item.opponentText }}
       </div>
+    </div>
+    
+    <!-- 目标文本，跨越最后 2 个音频控件的宽度 -->
+    <div class="col-span-2 px-4 py-2 text-left text-sm font-base dark:text-white">
+      <div><b>Target Text:</b> {{ item.targetText }}</div>
+      <div v-if="item.targetText_translated">
+        <b>Translated Text:</b> {{ item.targetText_translated }}
+      </div>
+    </div>
   </div>
 </div>
+
             
             
             
