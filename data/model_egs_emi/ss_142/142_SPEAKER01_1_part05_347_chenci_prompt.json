@@ -1,0 +1,7 @@
+{
+    "key": "/root/test_dataset_1/142_SPEAKER01_1_part05_347",
+    "text": "本易解决未知的问题，提升了安全感。尽管科学发展已经解决过去许多过去的问题，但人类依然面临着随时可能出现的新挑战。但正是由于过去的科学发展，为人类提供了许多有用的工具和成熟的方法论，让人们在面对新问题时更加游刃有余。例如，面对前所未有的新冠病毒，正是由于人类掌握了研究疾病的科学方法，从而能够针对新病毒快速制定治疗方案，成功化解危机。事实也证明，诸多所谓新问题，只是科学探索中暂时出现的正。",
+    "language": "zh",
+    "chenci_prompt_wav_path": "/root/test_dataset_1/142_SPEAKER01_1_part05_347_chenci_prompt.wav",
+    "prompt_wav_path": "/root/test_dataset_1/142_SPEAKER01_1_part05_347.wav"
+}

@@ -1,0 +1,7 @@
+{
+    "key": "/root/test_dataset_1/91_SPEAKER01_2_part08_220",
+    "text": "现实要怎么讲呢？就我指着一朵花跟他说看花死，然后这才叫现实。讲如果我说的是你看这朵花他的生命逐渐的凋零了，然后挺生动形象的。然后在这种情况底下，对方就觉得你看你讲的不是现实，你讲的是一个故事了。可是一朵花凋零，这到底跟故事有什么关系？所以说讲述方式从来也不是双方的差别。如果你方一定要讲讲述方式，还有很多人讲故事，讲的很枯燥呢，他就用那个睡眠一样的音调在那里说，嗯，从前有一个什么什么什么怎么怎么样，孩子也会听睡着呀。所以说。",
+    "language": "zh",
+    "chenci_prompt_wav_path": "/root/test_dataset_1/91_SPEAKER01_2_part08_220_chenci_prompt.wav",
+    "prompt_wav_path": "/root/test_dataset_1/91_SPEAKER01_2_part08_220.wav"
+}
