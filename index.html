@@ -486,8 +486,8 @@
           <!-- 目标文本，跨越最后两个音频控件的宽度 -->
           <div class="col-span-2 px-4 py-3 text-left text-sm dark:text-gray-100">
             <div><b>Target Text:</b> {{ item.targetText }}</div>
-            <div v-if="item.targetText_translated">
-              <b>Translated Text:</b> {{ item.targetText_translated }}
+            <div v-if="item.targetText_translated" class="text-gray-500 italic">
+              <b class="italic">Translated Text:</b> {{ item.targetText_translated }}
             </div>
           </div>
         </div>
@@ -536,8 +536,8 @@
           <!-- 目标文本，跨越最后 2 个音频控件的宽度 -->
           <div class="col-span-2 px-4 py-3 text-left text-sm dark:text-gray-100">
             <div><b>Target Text:</b> {{ item.targetText }}</div>
-            <div v-if="item.targetText_translated">
-              <b>Translated Text:</b> {{ item.targetText_translated }}
+            <div v-if="item.targetText_translated" class="text-gray-500 italic">
+              <b class="italic">Translated Text:</b> {{ item.targetText_translated }}
             </div>
           </div>
         </div>
