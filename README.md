@@ -1,5 +1,4 @@
-# debatts
-# Debatts Demo Page
+# Debatts
 
 ## Overview
 
