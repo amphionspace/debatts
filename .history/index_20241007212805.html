@@ -251,7 +251,7 @@
                 <td class="px-4 py-2">V.Debate<sup>[1]</sup></td>
                 <td class="px-4 py-2">EN</td>
                 <td class="px-4 py-2">-</td>
-                <td class="px-4 py-2">24 (est.)</td>
+                <td class="px-4 py-2">24 (E.)</td>
                 <td class="px-4 py-2">T</td>
                 <td class="px-4 py-2">-</td>
                 <td class="px-4 py-2">W</td>
@@ -260,7 +260,7 @@
                 <td class="px-4 py-2">Record<sup>[2]</sup></td>
                 <td class="px-4 py-2">EN</td>
                 <td class="px-4 py-2">10</td>
-                <td class="px-4 py-2">6 (est.)</td>
+                <td class="px-4 py-2">6 (E.)</td>
                 <td class="px-4 py-2">T+S</td>
                 <td class="px-4 py-2">44.1</td>
                 <td class="px-4 py-2">S</td>
@@ -269,7 +269,7 @@
                 <td class="px-4 py-2">Rebuttal<sup>[3]</sup></td>
                 <td class="px-4 py-2">EN</td>
                 <td class="px-4 py-2">14</td>
-                <td class="px-4 py-2">27 (est.)</td>
+                <td class="px-4 py-2">27 (E.)</td>
                 <td class="px-4 py-2">T+S</td>
                 <td class="px-4 py-2">-</td>
                 <td class="px-4 py-2">S</td>
@@ -278,7 +278,7 @@
                 <td class="px-4 py-2">DBates<sup>[4]</sup></td>
                 <td class="px-4 py-2">EN</td>
                 <td class="px-4 py-2">140</td>
-                <td class="px-4 py-2">70 (est.)</td>
+                <td class="px-4 py-2">70 (E.)</td>
                 <td class="px-4 py-2">T+S</td>
                 <td class="px-4 py-2">16</td>
                 <td class="px-4 py-2">W</td>
@@ -319,7 +319,7 @@
         <p class="text-p">
           To better understand the performance of the pipeline as well as the diversity and quality of the rebuttal
           dataset, we
-          have sampled a few speech examples below for preview. The below figure is an illustration of rebuttal.
+          have sampled a few speech examples above for preview. The below figure is an illustration of rebuttal.
         </p>
         <img class="mx-auto" src="./static/dataset_new_eample.svg" style="width: 35%; height: auto;">
         <br>
@@ -330,9 +330,9 @@
           <table class="w-full text-sm text-left text-gray-900 dark:text-gray-200 border-collapse border border-gray-300 dark:border-gray-600">
             <thead class="bg-gray-100 dark:bg-gray-800">
               <tr>
-                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Rebuttal Subject</th>
-                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Opponent Speech</th>
-                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Speech</th>
+                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600">Rebuttal Subject</th>
+                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600">Opponent Speech</th>
+                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600">Speech</th>
               </tr>
             </thead>
             <tbody>
@@ -422,7 +422,7 @@
             href="https://github.com/open-mmlab/Amphion">open-mmlab/Amphion</a>.
         </p> -->
 
-      <h4 id="model">The Debatts Model Architecture</h4>
+      <h4 id="Model">The Debatts Model Architecture</h4>
       <p class="text-p">
         <code>Debatts</code> is the first zero-shot debating text-to-speech (TTS) system that leverages the opponent's
         speech as a style prompt, alongside the target speaker's speech as a speaker identification prompt. It features
@@ -729,13 +729,13 @@
             opponentText: "你们那些所有的例子, 就是恰恰是在大家广泛讨论之后, 我们得到一个破镜的真相, 有了盖棺定论。比如说现在俄乌冲突双方各执一词, 有的人说乌克兰就一定是坏人。有的人说, 俄罗斯就一定是坏人, 你怎么判断什么是偏见？",
             oppotext_trans: "All of your examples are exactly about how, after extensive discussions, we end up with a shattered truth and a final conclusion. For example, in the current Russia-Ukraine conflict, both sides stick to their own stories. Some people say Ukraine is definitely the bad guy. Others say Russia is definitely the bad guy. How do you determine what is prejudice?",
           },
-        //   {
-        //     path: "ss_344",
-        //     targetText: "他当然可以暴露一些问题啊, 比如说河南的经济社会发展问题。",
-        //     targetText_translated: "Of course, he can highlight some issues, such as the economic and social development problems in Henan province.",
-        //     opponentText: "哦, 所以今天我方是政策的执呃, 政策制定者。如果今天我方制定的抑制偏见的政策, 就是教育, 加上这些呃强制手段来进行兜底, 所以也没有什么问题。你方今天不要给我方的政策扣帽子, 我再进一步问你今天对于河南那些评论都是偷井盖的, 河南人又偷东西了, 你觉得都表达这种偏见, 对于挖掘事实真相有什么好处啊？",
-        //     oppotext_trans: "Oh, so today our side consists of policy implementers and policymakers. If the policies we create to suppress prejudice involve education combined with these mandatory measures as a safety net, then there's no problem. Don't label our policies today. Let me ask you further: today's comments about people from Henan stealing manhole covers and other items are expressions of such prejudice. What benefit do you think this prejudice has in uncovering the truth?",
-        //   },
+          {
+            path: "ss_344",
+            targetText: "他当然可以暴露一些问题啊, 比如说河南的经济社会发展问题。",
+            targetText_translated: "Of course, he can highlight some issues, such as the economic and social development problems in Henan province.",
+            opponentText: "哦, 所以今天我方是政策的执呃, 政策制定者。如果今天我方制定的抑制偏见的政策, 就是教育, 加上这些呃强制手段来进行兜底, 所以也没有什么问题。你方今天不要给我方的政策扣帽子, 我再进一步问你今天对于河南那些评论都是偷井盖的, 河南人又偷东西了, 你觉得都表达这种偏见, 对于挖掘事实真相有什么好处啊？",
+            oppotext_trans: "Oh, so today our side consists of policy implementers and policymakers. If the policies we create to suppress prejudice involve education combined with these mandatory measures as a safety net, then there's no problem. Don't label our policies today. Let me ask you further: today's comments about people from Henan stealing manhole covers and other items are expressions of such prejudice. What benefit do you think this prejudice has in uncovering the truth?",
+          },
         ]
 
         const data_model_egs = [
