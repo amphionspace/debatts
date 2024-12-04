@@ -72,8 +72,8 @@
   </style>
   <style>
     .center-text {
-  text-align: center;
-  }
+      text-align: center;
+    }
   </style>
 
   <script>
@@ -133,7 +133,7 @@
             </li> -->
             <li>
               <a href="https://huggingface.co/datasets/amphion/Debatts-Data" class="list-select" target="_blank">
-                <img class="h-6 w-6" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"/> 
+                <img class="h-6 w-6" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" />
               </a>
             </li>
           </ul>
@@ -188,11 +188,15 @@
           </a>
         </div> -->
         <div class="flex gap-2 justify-center flex-wrap">
+          <a href="https://arxiv.org/abs/2411.06540" target="_blank">
+            <img src="https://img.shields.io/badge/arXiv-Paper-COLOR.svg">
+          </a>
           <a href="https://huggingface.co/datasets/amphion/Debatts-Data" target="_blank">
-              <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Dataset-yellow" alt="Hugging Face Dataset">
+            <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Dataset-yellow"
+              alt="Hugging Face Dataset">
           </a>
         </div>
-      
+
 
         <div class="max-w-[900px] mx-auto mt-8 mb-16">
           <div class="text-center pb-10 flex flex-col gap-3">
@@ -317,17 +321,21 @@
             </div> -->
           <!-- 脚注部分 -->
           <div class="mt-4 text-sm text-gray-700 dark:text-gray-300">
-            <p><strong>[1]</strong> Ruiz-Dolz, R., Nofre, M., Taulé, M., Heras, S., & García-Fornes, A. (2021). Vivesdebate: A new annotated multilingual corpus of argumentation in a debate
+            <p><strong>[1]</strong> Ruiz-Dolz, R., Nofre, M., Taulé, M., Heras, S., & García-Fornes, A. (2021).
+              Vivesdebate: A new annotated multilingual corpus of argumentation in a debate
               tournament. <em>Applied Sciences</em>, 11(15), 7160.</p>
-            <p><strong>[2]</strong> Mirkin, S., Jacovi, M., Lavee, T., Kuo, H. K., Thomas, S., Sager, L., ... & Slonim, N. (2017). A recorded debating dataset. <em>arXiv preprint arXiv:1709.06438</em>.</p>
-            <p><strong>[3]</strong> Orbach, M., Bilu, Y., Gera, A., Kantor, Y., Dankin, L., Lavee, T., ... & Slonim, N. (2019). A dataset of general-purpose rebuttal. <em>arXiv preprint arXiv:1909.00393</em>.</p>
-            <p><strong>[4]</strong> Sen, T. K., Naven, G., Gerstner, L., Bagley, D., Baten, R. A., Rahman, W., ... & Hoque, E. (2021). Dbates: Dataset for discerning benefits of audio, textual, and facial expression
+            <p><strong>[2]</strong> Mirkin, S., Jacovi, M., Lavee, T., Kuo, H. K., Thomas, S., Sager, L., ... & Slonim,
+              N. (2017). A recorded debating dataset. <em>arXiv preprint arXiv:1709.06438</em>.</p>
+            <p><strong>[3]</strong> Orbach, M., Bilu, Y., Gera, A., Kantor, Y., Dankin, L., Lavee, T., ... & Slonim, N.
+              (2019). A dataset of general-purpose rebuttal. <em>arXiv preprint arXiv:1909.00393</em>.</p>
+            <p><strong>[4]</strong> Sen, T. K., Naven, G., Gerstner, L., Bagley, D., Baten, R. A., Rahman, W., ... &
+              Hoque, E. (2021). Dbates: Dataset for discerning benefits of audio, textual, and facial expression
               features in competitive debate speeches. <em>IEEE Transactions on Affective Computing</em>, 14(2),
               1028-1043.</p>
           </div>
         </div>
 
-        
+
 
         <h5>Data Preview</h5>
         <p class="text-p">
@@ -339,20 +347,24 @@
         <br>
         <br>
         <h5>Sample Rebuttal Examples</h5>
-    
+
         <div class="overflow-x-auto my-4">
-          <table class="w-full text-sm text-left text-gray-900 dark:text-gray-200 border-collapse border border-gray-300 dark:border-gray-600">
+          <table
+            class="w-full text-sm text-left text-gray-900 dark:text-gray-200 border-collapse border border-gray-300 dark:border-gray-600">
             <thead class="bg-gray-100 dark:bg-gray-800">
               <tr>
-                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Rebuttal Subject</th>
-                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Opponent Speech</th>
+                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Rebuttal Subject
+                </th>
+                <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Opponent Speech
+                </th>
                 <th class="px-4 py-3 font-bold border border-gray-300 dark:border-gray-600 text-center">Speech</th>
               </tr>
             </thead>
             <tbody>
               <template v-for="(example, index) in data_preview_examples" :key="index">
                 <tr class="bg-white dark:bg-gray-700">
-                  <td class="px-4 py-3 text-center align-middle border border-gray-300 dark:border-gray-600" :rowspan="Math.max((example.opponentSpeeches ? example.opponentSpeeches.length : 0), (example.speeches ? example.speeches.length : 0))">
+                  <td class="px-4 py-3 text-center align-middle border border-gray-300 dark:border-gray-600"
+                    :rowspan="Math.max((example.opponentSpeeches ? example.opponentSpeeches.length : 0), (example.speeches ? example.speeches.length : 0))">
                     <div>{{ example.subject }}</div>
                     <div class="text-gray-500 italic">{{ example.subject_translation }}</div>
                   </td>
@@ -375,7 +387,9 @@
                     </div>
                   </td>
                 </tr>
-                <tr v-for="i in (Math.max((example.opponentSpeeches ? example.opponentSpeeches.length : 0), (example.speeches ? example.speeches.length : 0)) - 1)" :key="`${index}-${i}`" class="bg-white dark:bg-gray-700">
+                <tr
+                  v-for="i in (Math.max((example.opponentSpeeches ? example.opponentSpeeches.length : 0), (example.speeches ? example.speeches.length : 0)) - 1)"
+                  :key="`${index}-${i}`" class="bg-white dark:bg-gray-700">
                   <td class="px-4 py-3 align-top border border-gray-300 dark:border-gray-600">
                     <div v-if="example.opponentSpeeches && example.opponentSpeeches[i]">
                       <audio controls class="w-full mb-2" controlsList="nodownload noremoteplayback">
@@ -452,10 +466,12 @@
       <br>
       <h4 id="demos">Demos</h4>
       <p class="text-p">
-        In this section, we demonstrate the zero-shot TTS performance of the Debatts compared to the baseline. Note that the translated text are just for illustration, and the generated speech are all in Madarin.
+        In this section, we demonstrate the zero-shot TTS performance of the Debatts compared to the baseline. Note that
+        the translated text are just for illustration, and the generated speech are all in Madarin.
       </p>
 
-      <h5 id="en-samples" class="text-lg font-semibold text-gray-900 dark:text-gray-100">Samples generated by Baseline Model and Debatts respectively,
+      <h5 id="en-samples" class="text-lg font-semibold text-gray-900 dark:text-gray-100">Samples generated by Baseline
+        Model and Debatts respectively,
         with speaker identification prompt from Debatts-Data.
       </h5>
 
@@ -463,20 +479,24 @@
       <!-- 标题部分 -->
       <div class="w-full overflow-x-auto my-4">
         <div class="relative w-full mx-auto text-sm text-left text-gray-900 dark:text-gray-100">
-          <div class="grid grid-cols-4 text-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
-            <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-3 font-bold border-r border-gray-300 dark:border-gray-600 last:border-r-0">
+          <div
+            class="grid grid-cols-4 text-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+            <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name"
+              class="px-4 py-3 font-bold border-r border-gray-300 dark:border-gray-600 last:border-r-0">
               {{ sound.name }}
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- 内容部分 -->
       <div v-for="(item, index) in data_model_egs" :key="index" class="my-4">
         <!-- 音频控件行 -->
-        <div class="grid grid-cols-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <div
+          class="grid grid-cols-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600">
           <!-- 遍历所有音频控件 -->
-          <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name" class="px-4 py-3 text-center border-r border-gray-300 dark:border-gray-600 last:border-r-0">
+          <div v-for="(sound, idx) in data_model_egs_sounds" :key="sound.name"
+            class="px-4 py-3 text-center border-r border-gray-300 dark:border-gray-600 last:border-r-0">
             <!-- 音频控件 -->
             <audio controls class="w-full mb-2" controlsList="nodownload noremoteplayback">
               <source :src="'data/model_egs/' + item.path + '/' + sound.path">
@@ -484,7 +504,8 @@
           </div>
         </div>
         <!-- 对手文本与目标文本行 -->
-        <div class="grid grid-cols-4 items-center mt-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
+        <div
+          class="grid grid-cols-4 items-center mt-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
           <div class="col-span-1 px-4 py-3 border-r border-gray-300 dark:border-gray-600"></div>
           <!-- 对手文本 -->
           <div class="col-span-1 px-4 py-3 text-sm dark:text-gray-100 border-r border-gray-300 dark:border-gray-600">
@@ -501,31 +522,36 @@
           </div>
         </div>
       </div>
-      
+
       <br>
       <br>
       <h5 id="en-samples" class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-        Samples generated by Baseline Model and Debatts respectively with speaker identification prompt from Emilia Subset.
+        Samples generated by Baseline Model and Debatts respectively with speaker identification prompt from Emilia
+        Subset.
       </h5>
-      
+
       <!-- data_model_emi_egs:table -->
       <!-- 标题部分 -->
       <div class="w-full overflow-x-auto my-4">
         <div class="relative w-full mx-auto text-sm text-left text-gray-900 dark:text-gray-100">
-          <div class="grid grid-cols-4 text-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
-            <div v-for="(sound, idx) in data_model_emi_egs_sounds" :key="sound.name" class="px-4 py-3 font-bold border-r border-gray-300 dark:border-gray-600 last:border-r-0">
+          <div
+            class="grid grid-cols-4 text-center bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600">
+            <div v-for="(sound, idx) in data_model_emi_egs_sounds" :key="sound.name"
+              class="px-4 py-3 font-bold border-r border-gray-300 dark:border-gray-600 last:border-r-0">
               {{ sound.name }}
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- 内容部分 -->
       <div v-for="(item, index) in data_model_emi_egs" :key="index" class="my-4">
         <!-- 音频控件行 -->
-        <div class="grid grid-cols-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <div
+          class="grid grid-cols-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600">
           <!-- 遍历所有音频控件 -->
-          <div v-for="(sound, idx) in data_model_emi_egs_sounds" :key="sound.name" class="px-4 py-3 text-center border-r border-gray-300 dark:border-gray-600 last:border-r-0">
+          <div v-for="(sound, idx) in data_model_emi_egs_sounds" :key="sound.name"
+            class="px-4 py-3 text-center border-r border-gray-300 dark:border-gray-600 last:border-r-0">
             <!-- 音频控件 -->
             <audio controls class="w-full mb-2" controlsList="nodownload noremoteplayback">
               <source :src="'data/model_egs_emi/' + item.path + '/' + sound.path">
@@ -533,7 +559,8 @@
           </div>
         </div>
         <!-- 对手文本与目标文本行 -->
-        <div class="grid grid-cols-4 items-center mt-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
+        <div
+          class="grid grid-cols-4 items-center mt-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600">
           <div class="col-span-1 px-4 py-3 border-r border-gray-300 dark:border-gray-600"></div>
           <!-- 对手文本 -->
           <div class="col-span-1 px-4 py-3 text-sm dark:text-gray-100 border-r border-gray-300 dark:border-gray-600">
@@ -541,7 +568,7 @@
               <b>Opponent Text:</b> {{ item.opponentText }}
             </div>
           </div>
-      
+
           <!-- 目标文本，跨越最后 2 个音频控件的宽度 -->
           <div class="col-span-2 px-4 py-3 text-left text-sm dark:text-gray-100">
             <div><b>Target Text:</b> {{ item.targetText }}</div>
@@ -551,9 +578,25 @@
           </div>
         </div>
       </div>
-      
 
 
+
+      <section class="py-12">
+        <h5 id="en-samples" class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+          Interactive Debating Video with Human
+        </h5>
+        <p class="text-p">
+          This video is an example of Debatts’ synthesized speech interacting with a human voice, highlighting the SpeechLab's work at The Chinese University of Hong Kong, Shenzhen. The female voice is human, while the male voice is generated by Debatts, showcasing Debatts' natural, fluent, and highly expressive synthesized speech.
+        </p>
+        <div class="center-text">
+          <video controls width="80%" class="rounded-lg shadow-lg">
+            <source src="./static/interactive.mp4" type="video/mp4">
+            <source src="./static/interactive.webm" type="video/webm">
+            <source src="./static/interactive.ogv" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
 
 
     </div>
@@ -568,63 +611,63 @@
     const app = Vue.createApp({
       setup() {
         const data_preview_examples = [
-            {
-              subject: "熬夜是年轻人的病/药",
-              subject_translation: "Staying up late is the young's dilemma or heal",
-              opponentSpeeches: [
-                {
-                  audio: "data/dataset_egs/eg_2/oppo_1.wav",
-                  text: "不要说夜晚，人一生所有的乐趣可能都是多巴胺的代偿，不要扣在夜头上，如果你说不能是跟朋友一起过，打电话叫朋友出来一起熬一起野一起嗨一起快乐，有很多的选择夜意味着选择夜只是个时间，不要用一个时间概念束缚了他所有分泌的方式，你承不承认？无论是个人还是群体都有找到自己快乐的方式，因为夜是属于自己自己的承认吗？",
-                  translation: "Don’t think that it’s only the joy of the night that comes as a dopamine reward; in reality, all the pleasures in life could be seen as a form of dopamine compensation. It’s not just the nighttime that brings such joy. If you say that you can't experience this with friends, you could always call them up, invite them out to enjoy the night together, and choose from a variety of activities. This means that choosing the night is merely about timing—don’t let a specific time define or limit how joy is experienced. Would you agree that because the night feels like a time that belongs entirely to oneself, it offers both individuals and groups the freedom to find their own sources of happiness?"
-                },
-                {
-                  audio: "data/dataset_egs/eg_2/oppo_2.wav",
-                  text: "夜才能找到为什么跟熬夜没关系。",
-                  translation: "Night is the time to find out the life meaning, why this healing effect has nothing to do with staying up late?"
-                }
-              ],
-              speeches: [
-                {
-                  audio: "data/dataset_egs/eg_2/speech_1.wav",
-                  text: "我方是，但是我觉得跟熬夜没关系，你方还是完全没有论证。",
-                  translation: "But I don't think having fun has anything to do with staying up late, and you still has no argument at all."
-                },
-                {
-                  audio: "data/dataset_egs/eg_2/speech_2.wav",
-                  text: "非常好，如果一个社会让我们只有夜是属于自己的，这还不是病吗？",
-                  translation: "Very good, so isn't it still a social dillemma if a society allows us to have only the night to ourselves?"
-                }
-              ]
-            },
-            {
-              subject: "爱情和自由是成就徐志摩/阻碍徐志摩的人生价值",
-              subject_translation: "Love and Freedom is slogan made or hindered Xu Zhimo's values in life",
-              opponentSpeeches: [
-                {
-                  audio: "data/dataset_egs/eg_1/oppo_1.wav",
-                  text: "对方辩友好。解释一下, 今天我方从来没有否认过徐志摩本人有所成就。但是我们今天一开始就跟你确认过了, 我们今天讨论是爱与自由, 到底给他在这些事情上面选择造成什么样的影响。所以刚才您方提出的包括时代推动文学等等, 我们已经要求您论证他与爱与自由文然关系。但是今天我方例子里面包括吸毒, 包括政治, 世界上各种不作为, 我们都已经论证过, 是爱与自由, 使他做出这样的负面行为。您方如何解释？",
-                  translation: "Let me explain, today we have never denied that Xu Zhimo had his own accomplishments. However, we have confirmed with you from the beginning of today's discussion that we are discussing love and freedom, and what kind of influence they had on his choices in these matters. Therefore, we have already asked you to prove his relationship with love and freedom, including the idea that the times drove literature. However, in our example today, including drug abuse, politics, and all kinds of inaction in the world, we have already argued that it is love and freedom that makes him do such negative behaviors. How do you explain the love for the country?"
-                },
-                {
-                  audio: "data/dataset_egs/eg_1/oppo_2.wav",
-                  text: "正面回应一下您这个例子。今天他在给泰戈尔秘书的回信里亲笔写道, 这是因为当时的时局由于当时的政府不配合以及贪官污吏的行为, 导致他的行径无法推进。今天咱们有一个史料上的对冲, 您不要跳点, 刚才我方已经给您论证了。他对家国的爱, 使他能够写出这样的诗篇, 进行到对当时起到一定社会贡献。由于他对爱与文学中爱与自由的这种向往, 所以他才会办以爱与自由。这种风格为出名的新月书店, 对当时有一个推动作用, 为什么跟爱与自由没关联？是不是时代贡献？",
-                  translation: "To respond directly to your example. Today he wrote in his own handwriting in his reply to Tagore's secretary that it was due to the prevailing circumstances that he was not able to move forward because of the lack of cooperation from the government of the day and the behavior of corrupt officials. Today we have a historical hedge, you do not jump the point, just now we have argued to you. His love for his family and country enabled him to write such poems and to make a social contribution to the society at that time. Because of his desire for love and freedom in love and literature, he organized the bookstore Love and Freedom, which was famous for its style. The Crescent Moon Bookstore, which was famous for its style, was a catalyst for the time, so why wasn't it related to love and freedom? Was it a contribution to the times?"
-                }
-              ],
-              speeches: [
-                {
-                  audio: "data/dataset_egs/eg_1/speech_1.wav",
-                  text: "对方辩友, 今天还是告诉我, 他先退了一步, 叫做医生开了药方, 徐志摩不知道这个药方用什么用, 徐志摩真的不知道吗？根据志摩日记记载, 徐志摩最知道陆小骗呃, 陆小曼吸食鸦片什么态度, 他是一个恼怒的态度, 而后转为无奈, 他只能继续攻势他。所以徐志摩明确知道陆小曼在做什么, 他在染毒液, 但他做了什么, 他还是供养他他作为当时那个可能是极少数知道鸦片会让中国人变成东亚病夫的人, 他还这样做, 他起到了怎样的一个表率。最后您方不看吗？",
-                  translation: "The other side of the defense, today or tell me, he first retreated, called as a doctor prescribed medicine, Xu Zhimo does not know this prescription with what use, Xu Zhimo really do not know? According to Zhimo diary records, Xu Zhimo most know Lu Xiaoliu cheat er, Lu Xiaoman smoking opium what attitude, he is an annoyed attitude, and then turned helpless, he can only continue to attack him. So Xu Zhimo clearly knew what Lu Xiaoman was doing, he was dyeing venom, but what he did, he still feed him him as the time that may be the very few people who knew that opium will make the Chinese people become the sick man of East Asia, he still do so, he played what a role model. Will your party not watch it at the end?"
-                },
-                {
-                  audio: "data/dataset_egs/eg_1/speech_2.wav",
-                  text: "不对, 对方辩友其实已经承认了嘛, 徐志摩是可以有很多其他多样化的价值的。而且对方辩友我们逼问了他很多次, 到底是不是徐志摩只有一条路可以走, 是不是他必须要成为他所说, 那种人才才算是成功的人, 不是他可以有其他的时代价值。所以对方辩友一退再退, 其实他只有一个点, 就是吸毒, 只有这一个点, 对不对？",
-                  translation: "You've actually already acknowledged that Xu Zhimo can have many other diverse values. We've asked you many times—does Xu Zhimo really have only one path he can take? Does he have to become a political talent to be considered a successful person? Can’t he have other values that resonate with the era? So, what you’re arguing is that his ideals of love and freedom hindered his ability to have broader societal impact, and your only point to support this is that Xu Zhimo's actions somehow condoned drug use, right?"
-                }
-              ]
-            }
-          ];
+          {
+            subject: "熬夜是年轻人的病/药",
+            subject_translation: "Staying up late is the young's dilemma or heal",
+            opponentSpeeches: [
+              {
+                audio: "data/dataset_egs/eg_2/oppo_1.wav",
+                text: "不要说夜晚，人一生所有的乐趣可能都是多巴胺的代偿，不要扣在夜头上，如果你说不能是跟朋友一起过，打电话叫朋友出来一起熬一起野一起嗨一起快乐，有很多的选择夜意味着选择夜只是个时间，不要用一个时间概念束缚了他所有分泌的方式，你承不承认？无论是个人还是群体都有找到自己快乐的方式，因为夜是属于自己自己的承认吗？",
+                translation: "Don’t think that it’s only the joy of the night that comes as a dopamine reward; in reality, all the pleasures in life could be seen as a form of dopamine compensation. It’s not just the nighttime that brings such joy. If you say that you can't experience this with friends, you could always call them up, invite them out to enjoy the night together, and choose from a variety of activities. This means that choosing the night is merely about timing—don’t let a specific time define or limit how joy is experienced. Would you agree that because the night feels like a time that belongs entirely to oneself, it offers both individuals and groups the freedom to find their own sources of happiness?"
+              },
+              {
+                audio: "data/dataset_egs/eg_2/oppo_2.wav",
+                text: "夜才能找到为什么跟熬夜没关系。",
+                translation: "Night is the time to find out the life meaning, why this healing effect has nothing to do with staying up late?"
+              }
+            ],
+            speeches: [
+              {
+                audio: "data/dataset_egs/eg_2/speech_1.wav",
+                text: "我方是，但是我觉得跟熬夜没关系，你方还是完全没有论证。",
+                translation: "But I don't think having fun has anything to do with staying up late, and you still has no argument at all."
+              },
+              {
+                audio: "data/dataset_egs/eg_2/speech_2.wav",
+                text: "非常好，如果一个社会让我们只有夜是属于自己的，这还不是病吗？",
+                translation: "Very good, so isn't it still a social dillemma if a society allows us to have only the night to ourselves?"
+              }
+            ]
+          },
+          {
+            subject: "爱情和自由是成就徐志摩/阻碍徐志摩的人生价值",
+            subject_translation: "Love and Freedom is slogan made or hindered Xu Zhimo's values in life",
+            opponentSpeeches: [
+              {
+                audio: "data/dataset_egs/eg_1/oppo_1.wav",
+                text: "对方辩友好。解释一下, 今天我方从来没有否认过徐志摩本人有所成就。但是我们今天一开始就跟你确认过了, 我们今天讨论是爱与自由, 到底给他在这些事情上面选择造成什么样的影响。所以刚才您方提出的包括时代推动文学等等, 我们已经要求您论证他与爱与自由文然关系。但是今天我方例子里面包括吸毒, 包括政治, 世界上各种不作为, 我们都已经论证过, 是爱与自由, 使他做出这样的负面行为。您方如何解释？",
+                translation: "Let me explain, today we have never denied that Xu Zhimo had his own accomplishments. However, we have confirmed with you from the beginning of today's discussion that we are discussing love and freedom, and what kind of influence they had on his choices in these matters. Therefore, we have already asked you to prove his relationship with love and freedom, including the idea that the times drove literature. However, in our example today, including drug abuse, politics, and all kinds of inaction in the world, we have already argued that it is love and freedom that makes him do such negative behaviors. How do you explain the love for the country?"
+              },
+              {
+                audio: "data/dataset_egs/eg_1/oppo_2.wav",
+                text: "正面回应一下您这个例子。今天他在给泰戈尔秘书的回信里亲笔写道, 这是因为当时的时局由于当时的政府不配合以及贪官污吏的行为, 导致他的行径无法推进。今天咱们有一个史料上的对冲, 您不要跳点, 刚才我方已经给您论证了。他对家国的爱, 使他能够写出这样的诗篇, 进行到对当时起到一定社会贡献。由于他对爱与文学中爱与自由的这种向往, 所以他才会办以爱与自由。这种风格为出名的新月书店, 对当时有一个推动作用, 为什么跟爱与自由没关联？是不是时代贡献？",
+                translation: "To respond directly to your example. Today he wrote in his own handwriting in his reply to Tagore's secretary that it was due to the prevailing circumstances that he was not able to move forward because of the lack of cooperation from the government of the day and the behavior of corrupt officials. Today we have a historical hedge, you do not jump the point, just now we have argued to you. His love for his family and country enabled him to write such poems and to make a social contribution to the society at that time. Because of his desire for love and freedom in love and literature, he organized the bookstore Love and Freedom, which was famous for its style. The Crescent Moon Bookstore, which was famous for its style, was a catalyst for the time, so why wasn't it related to love and freedom? Was it a contribution to the times?"
+              }
+            ],
+            speeches: [
+              {
+                audio: "data/dataset_egs/eg_1/speech_1.wav",
+                text: "对方辩友, 今天还是告诉我, 他先退了一步, 叫做医生开了药方, 徐志摩不知道这个药方用什么用, 徐志摩真的不知道吗？根据志摩日记记载, 徐志摩最知道陆小骗呃, 陆小曼吸食鸦片什么态度, 他是一个恼怒的态度, 而后转为无奈, 他只能继续攻势他。所以徐志摩明确知道陆小曼在做什么, 他在染毒液, 但他做了什么, 他还是供养他他作为当时那个可能是极少数知道鸦片会让中国人变成东亚病夫的人, 他还这样做, 他起到了怎样的一个表率。最后您方不看吗？",
+                translation: "The other side of the defense, today or tell me, he first retreated, called as a doctor prescribed medicine, Xu Zhimo does not know this prescription with what use, Xu Zhimo really do not know? According to Zhimo diary records, Xu Zhimo most know Lu Xiaoliu cheat er, Lu Xiaoman smoking opium what attitude, he is an annoyed attitude, and then turned helpless, he can only continue to attack him. So Xu Zhimo clearly knew what Lu Xiaoman was doing, he was dyeing venom, but what he did, he still feed him him as the time that may be the very few people who knew that opium will make the Chinese people become the sick man of East Asia, he still do so, he played what a role model. Will your party not watch it at the end?"
+              },
+              {
+                audio: "data/dataset_egs/eg_1/speech_2.wav",
+                text: "不对, 对方辩友其实已经承认了嘛, 徐志摩是可以有很多其他多样化的价值的。而且对方辩友我们逼问了他很多次, 到底是不是徐志摩只有一条路可以走, 是不是他必须要成为他所说, 那种人才才算是成功的人, 不是他可以有其他的时代价值。所以对方辩友一退再退, 其实他只有一个点, 就是吸毒, 只有这一个点, 对不对？",
+                translation: "You've actually already acknowledged that Xu Zhimo can have many other diverse values. We've asked you many times—does Xu Zhimo really have only one path he can take? Does he have to become a political talent to be considered a successful person? Can’t he have other values that resonate with the era? So, what you’re arguing is that his ideals of love and freedom hindered his ability to have broader societal impact, and your only point to support this is that Xu Zhimo's actions somehow condoned drug use, right?"
+              }
+            ]
+          }
+        ];
 
         const data_model_egs_sounds = [
           {
